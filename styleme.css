@@ -121,3 +121,13 @@ p {
     width:500px;
     height: 300px;
 }
+
+.dash{
+    width: 500px;
+    height: 300px;
+}
+
+a{
+    color: rgb(10, 128, 141);
+    font-family: 'Tahoma', sans-serif;
+}
