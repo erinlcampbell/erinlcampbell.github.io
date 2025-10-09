@@ -1,6 +1,6 @@
 
 // ============================================
-// TUTORIAL 6: LOAD REAL DATA
+// TUT ORIAL 6: LOAD REAL DATA
 // From static data to async data loading
 // ============================================
 
