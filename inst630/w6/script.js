@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Hint: Disable the load button while loading
         
         // YOUR CODE HERE:
+        statusDisplay.classList.add("loading")
         statusMessage.innerHTML = `<p>Loading data</p>`;
         loadButton.disabled = true;
         
@@ -63,6 +64,8 @@ document.addEventListener('DOMContentLoaded', function() {
             // Hint: Enable all the method buttons
             
             // YOUR CODE HERE:
+            statusDisplay.classList.remove("loading")
+            statusDisplay.classList.add("success")
             statusMessage.innerHTML = `<p>Data successfully loaded.</p>`;
             loadButton.disabled = false;
             
@@ -77,6 +80,8 @@ document.addEventListener('DOMContentLoaded', function() {
             // Hint: Log the actual error for debugging
             
             // YOUR CODE HERE:
+            statusDisplay.classList.remove("loading")
+            statusDisplay.classList.add("error")
             statusMessage.innerHTML = `<p>Uh oh! Error loading data.</p>`;
             console.error("An error occurred:", error.message);
         }
