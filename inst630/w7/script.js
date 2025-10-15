@@ -190,7 +190,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // YOUR CODE HERE:
         let total = 0;
-        let hand-washing = 0;
+        let handwashing = 0;
         let temp = 0;
         let sewage = 0;
         let rodents = 0;
@@ -198,7 +198,7 @@ document.addEventListener('DOMContentLoaded', function() {
              total += 1;
 
              if (restaurant.properties.proper_hand_washing !== "In Compliance"){
-                 hand-washing += 1;
+                 handwashing += 1;
              }
              if (restaurant.properties.hot_holding_temperature !== "In Compliance"){
                  temp += 1;
