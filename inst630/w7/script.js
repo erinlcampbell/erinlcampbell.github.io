@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (response.ok){
                 const restaurantData = await response.json();
                 restaurants = restaurantData.features;
-                console.error("restaurant list: ", restaurants);
+                
             } else {
                 alert("HTTP-Error: " + response.status);
             }
@@ -132,8 +132,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // YOUR CODE HERE:
         restaurants.forEach(function(restaurant, index) { 
             cardGrid.innerHTML += `<div class="restaurant-card">
-                <div class="card-name">${restaurant.name}</div>
-                <div class="card-location">${restaurant.city}</div>
+                <div class="card-name">${restaurant.properties.name}</div>
+                <div class="card-location">${restaurant.properties.city}</div>
             </div>`
             
         })
