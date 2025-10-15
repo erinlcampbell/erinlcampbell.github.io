@@ -159,7 +159,19 @@ document.addEventListener('DOMContentLoaded', function() {
         // Hint: Include specific compliance fields for comparison
         
         // YOUR CODE HERE:
-        
+        restaurants.slice(0, 50).forEach(function(restaurant, index) { 
+            tableBody.innerHTML += `
+                <tr>
+                    <td>${restaurant.properties.name}</td>
+                    <td>${restaurant.properties.city}</td>
+                    <td>${restaurant.properties.inspection_date}</td>
+                    <td>${restaurant.properties.inspection_results}</td>
+                    <td>${restaurant.properties.proper_hand_washing}</td>
+                    <td>${restaurant.properties.hot_holding_temperature}</td>
+                </tr>
+            `
+            
+        })
         
         console.log('Table view: Emphasizing safety record comparison');
     }
