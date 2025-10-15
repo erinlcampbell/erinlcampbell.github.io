@@ -53,6 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (response.ok){
                 const restaurantData = await response.json();
                 restaurants = restaurantData.features;
+                console.error("restaurant list: ", restaurants);
             } else {
                 alert("HTTP-Error: " + response.status);
             }
