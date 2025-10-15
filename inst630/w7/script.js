@@ -131,16 +131,12 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // YOUR CODE HERE:
         restaurants.forEach(function(restaurant, index) { 
-            if ((restaurant.properties.inspection_results).includes("non")){
-                const class = "non-compliant";
-            } else {
-                const class = "compliant";
-            }
+            
             
             cardGrid.innerHTML += `<div class="restaurant-card">
                 <div class="card-name">${restaurant.properties.name}</div>
                 <div class="card-location">${restaurant.properties.city}</div>
-                <div class="card-status ${class}">${restaurant.properties.inspection_results}</div>
+                <div class="card-status">${restaurant.properties.inspection_results}</div>
                 
             </div>`
             
