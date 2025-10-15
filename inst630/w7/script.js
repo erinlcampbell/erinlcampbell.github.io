@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // YOUR CODE HERE:
         restaurants.forEach(function(restaurant, index) { 
-            if ((restaurant.properties.inspection_results).includes("non"){
+            if ((restaurant.properties.inspection_results).includes("non")){
                 const class = "non-compliant";
             } else {
                 const class = "compliant";
