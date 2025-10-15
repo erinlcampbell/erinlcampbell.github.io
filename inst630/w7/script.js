@@ -92,7 +92,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // Hint: Call switchToView('card') and updateViewButtons
         
         // YOUR CODE HERE:
-        
+        switchToView('card');
+        updateViewButtons();
         
     });
     
@@ -100,7 +101,8 @@ document.addEventListener('DOMContentLoaded', function() {
     tableViewBtn.addEventListener('click', function() {
         // Step 7: Switch to table view
         // YOUR CODE HERE:
-        
+        switchToView('table');
+        updateViewButtons();
         
     });
     
@@ -108,7 +110,8 @@ document.addEventListener('DOMContentLoaded', function() {
     statsViewBtn.addEventListener('click', function() {
         // Step 8: Switch to stats view
         // YOUR CODE HERE:
-        
+        switchToView('stats');
+        updateViewButtons();
         
     });
     
@@ -126,7 +129,13 @@ document.addEventListener('DOMContentLoaded', function() {
         // Hint: Focus on: name, location, recent inspection status
         
         // YOUR CODE HERE:
-        
+        restaurants.forEach(function(restaurant, index) { 
+            cardGrid.innerHTML += `<div class="restaurant-card">
+                <div class="card-name">${restaurant.name}</div>
+                <div class="card-location">${restaurant.city}</div>
+            </div>`
+            
+        })
         
         console.log('Card view: Emphasizing restaurant discovery');
     }
