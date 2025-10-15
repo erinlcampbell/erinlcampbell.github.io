@@ -213,7 +213,7 @@ document.addEventListener('DOMContentLoaded', function() {
         })
 
         statsBody.innerHTML += `<div class="stats-card">Total Restaurants: ${total}</div>
-        <div class="stats-card">Hand washing non-compliance: ${hand-washing/total}</div>
+        <div class="stats-card">Hand washing non-compliance: ${handwashing/total}</div>
         <div class="stats-card">Temperature non-compliance: ${temp/total}</div>
         <div class="stats-card">Sewage non-compliance: ${sewage/total}</div>
         <div class="stats-card">Rodents and insects non-compliance: ${rodents/total}</div>`
