@@ -181,14 +181,42 @@ document.addEventListener('DOMContentLoaded', function() {
     // ============================================
     
     function showStatsView() {
+        const statsBody = document.querySelector('#stats-grid');
+        statsBody.innerHTML = '';
         // Step 11: Calculate aggregate statistics
         // Hint: Use array methods to calculate totals, percentages, patterns
         // Hint: Count compliance vs non-compliance
         // Hint: Group by city and calculate city-level stats
         
         // YOUR CODE HERE:
-        
-        
+        let total = 0;
+        let hand-washing = 0;
+        let temp = 0;
+        let sewage = 0;
+        let rodents = 0;
+         restaurants.forEach(function(restaurant, index) { 
+             total += 1;
+
+             if (restaurant.properties.proper_hand_washing !== "In Compliance"){
+                 hand-washing += 1;
+             }
+             if (restaurant.properties.hot_holding_temperature !== "In Compliance"){
+                 temp += 1;
+             }
+             if (restaurant.properties.proper_sewage_disposal !== "In Compliance"){
+                 sewage += 1;
+             }
+             if (restaurant.properties.rodents_and_insects !== "In Compliance"){
+                 rodents += 1;
+             }
+            
+        })
+
+        statsBody.innerHTML += `<div class="stats-card">Total Restaurants: ${total}</div>
+        <div class="stats-card">Hand washing non-compliance: ${hand-washing/total}</div>
+        <div class="stats-card">Temperature non-compliance: ${temp/total}</div>
+        <div class="stats-card">Sewage non-compliance: ${sewage/total}</div>
+        <div class="stats-card">Rodents and insects non-compliance: ${rodents/total}</div>`
         console.log('Stats view: Emphasizing county-wide patterns');
     }
     
