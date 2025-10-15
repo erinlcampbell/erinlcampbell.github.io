@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Get UI elements
     const loadButton = document.querySelector('#load-data-button');
     const statusDisplay = document.querySelector('#loading-status');
+    const statusMessage = statusDisplay.querySelector('.status-message');
     const dataSummary = document.querySelector('#data-summary');
     const viewControls = document.querySelector('#view-controls');
     const displayContainer = document.querySelector('#display-container');
@@ -33,7 +34,9 @@ document.addEventListener('DOMContentLoaded', function() {
         // Hint: Use the same loading pattern from Tutorial 6
         
         // YOUR CODE HERE:
-        
+        statusDisplay.classList.add("loading")
+        statusMessage.innerHTML = `<p>Loading data</p>`;
+        loadButton.disabled = true;
         
         try {
             // Step 2: Load the GeoJSON data
@@ -45,19 +48,36 @@ document.addEventListener('DOMContentLoaded', function() {
             // Hint: restaurants = restaurantData.features; (GeoJSON has a 'features' array)
             
             // YOUR CODE HERE:
-            
+            const response = await fetch('restaurants.geojson');
+
+            if (response.ok){
+                const restaurantData = await response.json();
+                restaurants = restaurantData.features;
+            } else {
+                alert("HTTP-Error: " + response.status);
+            }
             
             // Step 4: Show success and enable interface
             // Hint: Show data summary, enable view controls
             // Hint: Call showDataSummary() and showInitialView()
             
             // YOUR CODE HERE:
+            statusDisplay.classList.remove("loading")
+            statusDisplay.classList.add("success")
+            statusMessage.innerHTML = `<p>Data successfully loaded.</p>`;
+            loadButton.disabled = false;
+
+            showDataSummary();
+            showInitialView();
             
             
         } catch (error) {
             // Step 5: Handle loading errors
             // YOUR CODE HERE:
-            
+            statusDisplay.classList.remove("loading")
+            statusDisplay.classList.add("error")
+            statusMessage.innerHTML = `<p>Uh oh! Error loading data.</p>`;
+            console.error("An error occurred:", error.message);
             
         }
     });
