@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function() {
             cardGrid.innerHTML += `<div class="restaurant-card">
                 <div class="card-name">${restaurant.properties.name}</div>
                 <div class="card-location">${restaurant.properties.city}</div>
-                <div class="card-status">${restaurant.properties.inspection_results}</div>
+                <div class="card-status ${getComplianceStatus(restaurant)}">${getComplianceStatus(restaurant)}</div>
                 
             </div>`
             
@@ -164,8 +164,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 <tr>
                     <td>${restaurant.properties.name}</td>
                     <td>${restaurant.properties.city}</td>
-                    <td>${restaurant.properties.inspection_date}</td>
-                    <td>${restaurant.properties.inspection_results}</td>
+                    <td>${formatDate(restaurant.properties.inspection_date)}</td>
+                    <td>${getComplianceStatus(restaurant)}</td>
                     <td>${restaurant.properties.proper_hand_washing}</td>
                     <td>${restaurant.properties.hot_holding_temperature}</td>
                 </tr>
@@ -190,33 +190,39 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // YOUR CODE HERE:
         let total = 0;
-        let handwashing = 0;
-        let temp = 0;
-        let sewage = 0;
-        let rodents = 0;
+        let compliant = 0;
+        let nonCompliant = 0;
          restaurants.forEach(function(restaurant, index) { 
              total += 1;
 
-             if (restaurant.properties.proper_hand_washing !== "In Compliance"){
-                 handwashing += 1;
+             if (getComplianceStatus(restaurant) === "compliant"){
+                 compliant += 1;
+             } else {
+                nonCompliant += 1;
              }
-             if (restaurant.properties.hot_holding_temperature !== "In Compliance"){
-                 temp += 1;
-             }
-             if (restaurant.properties.proper_sewage_disposal !== "In Compliance"){
-                 sewage += 1;
-             }
-             if (restaurant.properties.rodents_and_insects !== "In Compliance"){
-                 rodents += 1;
-             }
+             
             
         })
 
-        statsBody.innerHTML += `<div class="stats-card">Total Restaurants: ${total}</div>
-        <div class="stats-card">Hand washing non-compliance: ${handwashing/total}</div>
-        <div class="stats-card">Temperature non-compliance: ${temp/total}</div>
-        <div class="stats-card">Sewage non-compliance: ${sewage/total}</div>
-        <div class="stats-card">Rodents and insects non-compliance: ${rodents/total}</div>`
+        statsBody.innerHTML += `
+        <div class="stat-card">
+            <div class="stat-label">Total Restaurants</div>
+            <div class="stat-number">${total}</div>
+        </div>`
+
+        statsBody.innerHTML += `
+        <div class="stat-card">
+            <div class="stat-label">Compliant Restaurants</div> 
+            <div class="stat-number">${compliant}</div>
+        </div>`
+
+        statsBody.innerHTML += `
+        <div class="stat-card">
+            <div class="stat-label">Non-compliant Restaurants</div> 
+            <div class="stat-number">${nonCompliant}</div>
+        </div>`
+
+    
         console.log('Stats view: Emphasizing county-wide patterns');
     }
     
@@ -230,7 +236,24 @@ document.addEventListener('DOMContentLoaded', function() {
         // Hint: Count total restaurants, compliance rate, unique cities
         
         // YOUR CODE HERE:
+        dataSummary.innerHTML = ''
+        let total = 0;
+        let compliant = 0;
+        let nonCompliant = 0;
+         restaurants.forEach(function(restaurant, index) { 
+             total += 1;
+
+             if (getComplianceStatus(restaurant) === "compliant"){
+                 compliant += 1;
+             } else {
+                nonCompliant += 1;
+             }
+             
+            
+        })
         
+        dataSummary.innerHTML += `<p><span id="record-count">${total}</span> restaurants loaded • <span id="compliance-rate">${(compliant/total)*100}%</span> compliant • <span id="city-count">0</span> cities</p>`;
+
         
         dataSummary.classList.remove('hidden');
     }
