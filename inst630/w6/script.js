@@ -183,7 +183,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Hint: Create error message div with helpful text
             
             // YOUR CODE HERE:
-            errorDisplay.innerHTML = '<div">Uh oh! An error has occurred.</div>';
+            errorDisplay.innerHTML = '<div class="error-message">Uh oh! An error has occurred.</div>';
             
             console.error('Demonstrated error:', error);
         }
