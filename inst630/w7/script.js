@@ -182,7 +182,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     function showStatsView() {
         const statsBody = document.querySelector('#stats-grid');
+        const statsCity = document.querySelector('#city-stats');
         statsBody.innerHTML = '';
+        statsCity.innerHTML = '';
         // Step 11: Calculate aggregate statistics
         // Hint: Use array methods to calculate totals, percentages, patterns
         // Hint: Count compliance vs non-compliance
@@ -222,6 +224,25 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="stat-number">${nonCompliant}</div>
         </div>`
 
+
+        const neighborhoods = {};
+        restaurants.forEach(function(restaurant) {
+            neighborhoods[restaurant.properties.city] = (neighborhoods[restaurant.properties.city] || 0) + 1;
+        });
+
+    
+        Object.entries(neighborhoods)
+        .sort(function(a, b) { return b[1] - a[1]; })
+        .forEach(function([neighborhood, count]) {
+            statsCity.innerHTML  += `
+                <div style="padding: var(--spacing-md); background: var(--background); margin-bottom: var(--spacing-sm); border-radius: var(--radius);">
+                    <strong>${neighborhood}</strong>: ${count} restaurant${count !== 1 ? 's' : ''}
+                </div>
+            `;
+        });
+    
+   
+
     
         console.log('Stats view: Emphasizing county-wide patterns');
     }
@@ -251,8 +272,13 @@ document.addEventListener('DOMContentLoaded', function() {
              
             
         })
+
+        const neighborhoods = {};
+        restaurants.forEach(function(restaurant) {
+            neighborhoods[restaurant.properties.city] = (neighborhoods[restaurant.properties.city] || 0) + 1;
+        });
         
-        dataSummary.innerHTML += `<p><span id="record-count">${total}</span> restaurants loaded • <span id="compliance-rate">${(compliant/total)*100}%</span> compliant • <span id="city-count">0</span> cities</p>`;
+        dataSummary.innerHTML += `<p><span id="record-count">${total}</span> restaurants loaded • <span id="compliance-rate">${(compliant/total)*100}%</span> compliant • <span id="city-count">${Object.keys(neighborhoods).length}</span> cities</p>`;
 
         
         dataSummary.classList.remove('hidden');
