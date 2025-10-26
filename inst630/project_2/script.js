@@ -2,6 +2,7 @@ import showCards from './editable_js/template_cards.js';
 import showCategories from './editable_js/template_category.js';
 import showStats from './editable_js/template_stats.js';
 import showTable from './editable_js/template_table.js';
+import initializeSortable from './editable_js/sortable_table.js';
 
 import loadData from './editable_js/load_data.js';
 
@@ -57,12 +58,14 @@ function showError(message) {
  */
 document.addEventListener("DOMContentLoaded", async () => {
   console.log("Starting application...");
+  
 
   try {
     // Load data once
     showLoading();
     const data = await loadData();
     console.log(`Loaded ${data.length} items from API`);
+
 
     // Set up button event handlers - this pattern always works!
     document.getElementById("btn-cards").onclick = () => {
@@ -72,6 +75,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     document.getElementById("btn-table").onclick = () => {
       updateDisplay(showTable(data));
+      initializeSortable();
       updateButtonStates("table");
     };
 

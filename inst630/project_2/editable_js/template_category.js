@@ -10,17 +10,39 @@ function showCategories(data) {
   // - Make relationships between groups clear
   // - Consider showing group statistics
   /*html*/
+  //const districts = [...new Set(data.map((item) => item.district))];
+
+  const districts = ["I", "II", "III", "IV", "V", "VI"]
+  let districtHTML = "";
+  districts.forEach(
+    (district) => {
+      console.log(district);
+      let distListItemHtml = `<ul>`;
+      let filteredList = data.filter(
+        (camera) => {
+          return camera.district === district
+        }
+      )
+
+      filteredList.forEach(
+        (camera) =>{
+          distListItemHtml += `<li><strong>${camera.object_id}</strong> - ${camera.school}</li>`;
+        }
+      )
+
+      distListItemHtml +=`</ul>`
+      districtHTML += `<div class="districtList restaurant-card"><h3>District ${district}:</h3> ${distListItemHtml}</div>`;
+    }
+  )
+
+  const cities = [...new Set(data.map((item) => item.location.latitude))];
+  console.log(cities);
+
+
   return `
                 <h2 class="view-title">📂 Category View</h2>
-                <div class="todo-implementation">
-                    <h3>TODO: Implement Category View</h3>
-                    <p><strong>Your task:</strong> Group the data by categories to show relationships</p>
-                    <p><strong>Good for:</strong> Understanding patterns, finding similar items, exploring by type</p>
-                    <p><strong>Consider:</strong> Group by cuisine? Neighborhood? Price range? What tells the best story?</p>
-                    <p><strong>Available categories:</strong> ${[
-                      ...new Set(data.map((item) => item.cuisine)),
-                    ].join(", ")}</p>
-                </div>
+                <h1> Cameras by District </h1>
+                <div class="districtCategory card-grid">${districtHTML}</div>
             `;
 }
 

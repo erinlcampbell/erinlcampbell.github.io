@@ -7,18 +7,15 @@ function showCards(data) {
   const cardHTML = data
     .map(
        /*html*/ 
-      (restaurant) => `
+      (camera) => `
                 <div class="restaurant-card">
-                    <h3>${restaurant.name}</h3>
-                    <p><strong>Cuisine:</strong> ${restaurant.cuisine}</p>
-                    <p><strong>Rating:</strong> ${
-                      restaurant.rating
-                    }⭐ | <strong>Price:</strong> ${restaurant.priceRange}</p>
-                    <p><strong>Location:</strong> ${restaurant.neighborhood}</p>
-                    <p><strong>Phone:</strong> ${restaurant.phoneNumber}</p>
-                    <p><strong>Specialties:</strong> ${restaurant.specialties.join(
-                      ", "
-                    )}</p>
+                    <h3><strong>Camera Id:</strong> ${camera.object_id}</h3>
+                    <p><strong>Location:</strong> ${camera.street_address}</p>
+                    <p><strong>District:</strong> ${
+                      camera.district
+                    }</p>
+                     <p><strong>School Name:</strong> ${camera.school}</p>
+                     <p>City: ${camera.location_1.latitude} </p>
                 </div>
             `
     )

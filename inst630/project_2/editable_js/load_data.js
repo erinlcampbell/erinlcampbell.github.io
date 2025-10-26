@@ -9,10 +9,11 @@ async function loadData() {
     // TODO: Replace with student's chosen API
     // Examples:
     // const response = await fetch('https://data.princegeorgescountymd.gov/resource/xxxx.json');
+    
     // const response = await fetch('https://api.nasa.gov/neo/rest/v1/feed?api_key=DEMO_KEY');
     // const data = await response.json();
 
-    const response = await fetch ("./data.json")
+    const response = await fetch ("https://data.princegeorgescountymd.gov/resource/mnkf-cu5c.json")
     const data = await response.json();
     console.log("data loaded", data);
 
