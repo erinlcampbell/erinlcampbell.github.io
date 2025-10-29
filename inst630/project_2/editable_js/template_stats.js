@@ -61,27 +61,28 @@ const districts = ["I", "II", "III", "IV", "V", "VI"]
   console.log(speeds)
   return `
                 <h2 class="view-title">📈 Statistics View</h2>
-                <div class="stat-card> 
-                    <div class="stat-label">Number of Districts</div>
-                    <div class="stat-number">${districts_calc.length}</div>
-                </div>
-                <div class="stat-card> 
-                    <div class="stat-label">Minimum Posted Speed</div>
-                    <div class="stat-number">${Math.min(...speeds)} mph</div>
-                </div>
-                <div class="stat-card> 
-                    <div class="stat-label">Maximum Posted Speed</div>
-                    <div class="stat-number">${Math.max(...speeds)} mph</div>
-                </div>
-                <div class="stat-card> 
-                    <div class="stat-label">Average Posted Speed</div>
-                    <div class="stat-number">${Math.trunc(sum/speeds.length)} mph</div>
-                </div>
-                <div class="stat-card> 
-                    <div class="stat-label">Number of Posted Speeds Over 30mph</div>
-                    <div class="stat-number">${countOver30}</div>
-                </div>
-                
+                <div class="stats-grid">
+                    <div class="stat-card"> 
+                        <div class="stat-label">Number of Districts</div>
+                        <div class="stat-number">${districts_calc.length}</div>
+                    </div>
+                    <div class="stat-card"> 
+                        <div class="stat-label">Minimum Posted Speed</div>
+                        <div class="stat-number">${Math.min(...speeds)} mph</div>
+                    </div>
+                    <div class="stat-card"> 
+                        <div class="stat-label">Maximum Posted Speed</div>
+                        <div class="stat-number">${Math.max(...speeds)} mph</div>
+                    </div>
+                    <div class="stat-card"> 
+                        <div class="stat-label">Average Posted Speed</div>
+                        <div class="stat-number">${Math.trunc(sum/speeds.length)} mph</div>
+                    </div>
+                    <div class="stat-card"> 
+                        <div class="stat-label">Number of Posted Speeds Over 30mph</div>
+                        <div class="stat-number">${countOver30}</div>
+                    </div>
+                </div>    
                 <div>${districtHTML}</div>
             `;
 }

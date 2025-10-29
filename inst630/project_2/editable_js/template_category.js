@@ -13,11 +13,11 @@ function showCategories(data) {
   //const districts = [...new Set(data.map((item) => item.district))];
 
   const districts = ["I", "II", "III", "IV", "V", "VI"]
-  let districtHTML = "";
+  let districtHTML = ``;
   districts.forEach(
     (district) => {
       console.log(district);
-      let distListItemHtml = `<ul>`;
+      let distListItemHtml = `<div class="category-items">`;
       let filteredList = data.filter(
         (camera) => {
           return camera.district === district
@@ -26,12 +26,12 @@ function showCategories(data) {
 
       filteredList.forEach(
         (camera) =>{
-          distListItemHtml += `<li><strong>${camera.object_id}</strong> - ${camera.school}</li>`;
+          distListItemHtml += `<div class="category-item"><strong>${camera.object_id}</strong>  ${camera.school}</div>`;
         }
       )
 
-      distListItemHtml +=`</ul>`
-      districtHTML += `<div class="districtList restaurant-card"><h3>District ${district}:</h3> ${distListItemHtml}</div>`;
+      distListItemHtml +=`</div>`
+      districtHTML += `<div class="category-section"><div class="category-header">District ${district}:</div> ${distListItemHtml}</div>`;
     }
   )
 
