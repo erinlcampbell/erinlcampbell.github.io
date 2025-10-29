@@ -30,7 +30,7 @@ function showCategories(data) {
         }
       )
 
-      distListItemHtml +=`</div>`
+      distListItemHtml +=`<div class="category-item total"><strong>Total:</strong>${filteredList.length}</div></div>`
       districtHTML += `<div class="category-section"><div class="category-header">District ${district}:</div> ${distListItemHtml}</div>`;
     }
   )

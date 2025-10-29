@@ -380,3 +380,32 @@ table.sortable th:not([aria-sort]) button:hover span::after {
         margin: 5px;
     }
 }
+
+.total{
+    background-color: #ddd;
+}
+
+@media screen and (width < 420px) {
+    .container{
+        header{
+            h1{
+                font-size: 20px;
+            }
+        }
+    }
+
+    .view-title{
+        font-size: 15px;
+    }
+
+    table.sortable td,
+    table.sortable th {
+        padding: 0.05em 0.05em;
+        width: 4em;
+        font-size: 8px;
+    }
+
+    .category-item{
+        font-size: 12px;
+    }
+}
