@@ -1,7 +1,12 @@
+@font-face {
+    font-family: mario-text;
+    src: url(fonts/mario_kart_f2.ttf)
+}
+
 /* BASE STYLES - Students can modify and extend */
 :root {
-    --primary-color: #007cba;
-    --secondary-color: #28a745;
+    --primary-color: #e31401;
+    --secondary-color: #e3c500;
     --background-color: #f8f9fa;
     --card-background: #ffffff;
     --text-color: #333;
@@ -13,13 +18,24 @@ body {
     font-family: system-ui, sans-serif;
     margin: 0;
     padding: 1rem;
-    background: var(--background-color);
+    background-image: url(https://i.redd.it/which-wii-rainbow-road-looks-the-best-v0-0bzbtrm8z98c1.jpg?width=1280&format=pjpg&auto=webp&s=799d4a19df86a84a375db7227dcce783e25d18c9);
+    /*background: var(--background-color);*/
     color: var(--text-color);
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
+
+    header{
+        color: white;
+        h1 {
+            font-family: mario-text, system-ui, sans-serif;
+        }
+    }
 }
 
 .view-selector {
@@ -41,7 +57,7 @@ body {
 }
 
 .view-button:hover {
-    background: #005a87;
+    background: #870000;
 }
 
 .view-button.active {
@@ -74,10 +90,19 @@ body {
 
 /* UTILITY CLASSES FOR STUDENTS */
 .view-title {
+    font-family: mario-text, system-ui, sans-serif;
     margin: 0 0 1rem 0;
     color: var(--text-color);
     border-bottom: 2px solid #eee;
     padding-bottom: 0.5rem;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   gap: 20px;
+}
+
+.view_image{
+    max-width: 70px;
 }
 
 .view-description {
@@ -91,6 +116,12 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 1.5rem;
+
+    img{
+        max-width: 230px;
+        padding-bottom: 30px;
+        padding-left: 30px;
+    }
 }
 
 .restaurant-card {
@@ -165,12 +196,17 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1.5rem;
+
+    img{
+        max-height: 150px;
+        padding-left: 30px;
+    }
 }
 
 .stat-card {
     text-align: center;
     padding: 2rem;
-    background: linear-gradient(135deg, var(--primary-color), #0056b3);
+    background: linear-gradient(135deg, var(--primary-color), #851200);
     color: white;
     border-radius: 8px;
 }
@@ -184,6 +220,38 @@ body {
 .stat-label {
     font-size: 1.1rem;
     opacity: 0.9;
+}
+
+.city-breakdown {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 50px;
+    margin-top: 30px;
+}
+
+.city-breakdown h4 {
+    
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.city-stats {
+    display: grid;
+    gap: 15px;
+}
+
+.city-stat {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: white;
+    border-radius: 50px;
+    border-left: 0.25rem solid lightslategray;
+}
+
+.city-name {
+    font-weight: bold;
 }
 
 .todo-implementation {

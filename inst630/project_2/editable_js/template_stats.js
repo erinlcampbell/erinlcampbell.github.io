@@ -53,14 +53,14 @@ const districts = ["I", "II", "III", "IV", "V", "VI"]
       )
 
       
-      districtHTML += `<div class="districtList restaurant-card"><h3>District ${district}:</h3> ${count}</div>`;
+      districtHTML += `<div class="city-stat"><div class="city-name">District ${district}:</div> ${count}</div>`;
     }
   )
 
 
   console.log(speeds)
   return `
-                <h2 class="view-title">📈 Statistics View</h2>
+                <h2 class="view-title"><img class="view_image" src="https://m.media-amazon.com/images/I/51lpfNMJZqL._AC_UF894,1000_QL80_.jpg" alt="dk"> Statistics View</h2>
                 <div class="stats-grid">
                     <div class="stat-card"> 
                         <div class="stat-label">Number of Districts</div>
@@ -82,8 +82,14 @@ const districts = ["I", "II", "III", "IV", "V", "VI"]
                         <div class="stat-label">Number of Posted Speeds Over 30mph</div>
                         <div class="stat-number">${countOver30}</div>
                     </div>
+                    <img src="https://www.giantbomb.com/a/uploads/scale_small/10/100719/1440824-lakitu__mario_kart_double_dash___.jpg" alt="lakitu2">
                 </div>    
-                <div>${districtHTML}</div>
+                <div class="city-breakdown">
+                    <h3>Number of Cameras with Posted Speeds Over 30mph By District</h3>
+                    <div class="city-stats">
+                      ${districtHTML}
+                    </div>
+                </div>
             `;
 }
 

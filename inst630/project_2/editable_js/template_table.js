@@ -35,8 +35,7 @@ function showTable(data) {
     .join("");
      /*html*/ 
   return `
-                <h2 class="view-title">🃏 Table View</h2>
-                <p class="view-description">Browse the cameras as a sortable table - perfect for comparing options</p>
+                <h2 class="view-title"><img class="view_image" src="https://preview.redd.it/share-your-ideas-a-new-luigi-themed-race-course-for-the-v0-dy10mrt217cc1.jpeg?width=640&crop=smart&auto=webp&s=01a4f28bac8072a0584f15fedad3a883c0451048" alt="luigi"> Table View</h2>
                 <div class="table-wrap"><table class="sortable">
                         <thead>
                             <tr>

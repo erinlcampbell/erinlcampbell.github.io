@@ -40,7 +40,7 @@ function showCategories(data) {
 
 
   return `
-                <h2 class="view-title">📂 Category View</h2>
+                <h2 class="view-title"><img class="view_image" src="https://w0.peakpx.com/wallpaper/700/667/HD-wallpaper-peach-mario-kart-wii-bike-pink.jpg" alt="peach"> Category View</h2>
                 <h1> Cameras by District </h1>
                 <div class="districtCategory card-grid">${districtHTML}</div>
             `;

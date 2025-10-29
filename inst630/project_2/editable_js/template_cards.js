@@ -15,16 +15,15 @@ function showCards(data) {
                       camera.district
                     }</p>
                      <p><strong>School Name:</strong> ${camera.school}</p>
-                     <p>City: ${camera.location_1.latitude} </p>
                 </div>
             `
     )
     .join("");
      /*html*/ 
   return `
-                <h2 class="view-title">🃏 Card View</h2>
-                <p class="view-description">Browse restaurants as individual cards - perfect for comparing options</p>
+                <h2 class="view-title"><img class="view_image" src="https://i.pinimg.com/736x/28/ae/e5/28aee52766b152950e62c543dc867df0.jpg" alt="mario"> Card View</h2>
                 <div class="card-grid">
+                    <img src="https://media.tenor.com/KXWh0Y-P9iEAAAAe/lakitu-mario-kart.png" alt="lakitu">
                     ${cardHTML}
                 </div>
             `;
