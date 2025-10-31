@@ -110,6 +110,7 @@ export function handleChartError(error) {
     
     // Show error in canvas
     const canvas = document.querySelector('#restaurant-chart');
+    console.log(canvas)
     if (canvas) {
         const ctx = canvas.getContext('2d');
         

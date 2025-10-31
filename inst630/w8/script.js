@@ -55,19 +55,23 @@ function createMyChart() {
         // TODO: Count restaurants by cuisine type
         // Hint: restaurant.cuisine is the field you want
         // Hint: cuisineCounts[cuisine] = (cuisineCounts[cuisine] || 0) + 1;
+        cuisineCounts[restaurant.cuisine] = (cuisineCounts[restaurant.cuisine] || 0) + 1;
+        
     });
+    console.log(cuisineCounts)
     
     // Step 3: Transform counts into Chart.js format using array methods
-    // const chartLabels = /* TODO: Get the cuisine types (keys) */;
-    // const chartData = /* TODO: Get the counts (values) */;
+    const chartLabels = Object.keys(cuisineCounts);
+    const chartData = Object.values(cuisineCounts);
     
     console.log('Chart data prepared:', { labels: chartLabels, data: chartData });
     
     try {
         // Step 4: Get canvas and clear existing chart (provided)
-        const canvas = document.querySelector('#restaurant-chart');
+        const canvas = document.querySelector('#rating-chart');
+        console.log(canvas);
         const ctx = canvas.getContext('2d');
-        
+        console.log("after get context");
         if (myChart) {
             myChart.destroy();
             myChart = null;
@@ -77,7 +81,7 @@ function createMyChart() {
         // options for charts: https://www.chartjs.org/docs/latest/charts/
         myChart = new Chart(ctx, {
             /* TODO: What type of chart? 'bar', 'pie', 'line'? */
-            type: 'bar',
+            type: 'pie',
             data: {
                 labels: chartLabels,
                 datasets: [{
@@ -160,7 +164,7 @@ function createMyMap() {
             
             // TODO: Create popup content with restaurant information
             /* TODO: Build HTML string using restaurant.name, restaurant.cuisine, restaurant.rating */;
-            // const popupContent = ...;
+            const popupContent = `<div><strong>${restaurant.name}</strong> <br> Cuisine: ${restaurant.cuisine} <br> Rating: ${restaurant.rating}`;
             
             // TODO: Bind the popup to the marker and add to map
             marker.bindPopup(popupContent).addTo(myMap);
