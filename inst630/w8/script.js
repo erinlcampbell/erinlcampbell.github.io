@@ -205,7 +205,7 @@ function animateMyCards() {
             // FROM state (starting point)
             {
                 /* TODO: Starting properties - opacity, scale, y position? */
-                opacity: 0, scale: 0.5, y: 200
+                opacity: 0, scale: 2
             },
             // TO state (ending point)  
             {
