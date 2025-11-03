@@ -205,13 +205,14 @@ function animateMyCards() {
             // FROM state (starting point)
             {
                 /* TODO: Starting properties - opacity, scale, y position? */
+                opacity: 0, scale: 0.5, y: 200
             },
             // TO state (ending point)  
             {
                 /* TODO: Ending properties - make them fully visible and normal size */
-                duration: '0.2'
-                // stagger: /* TODO: Delay between each card? 0.1 seconds? */,
-                // ease: /* TODO: What kind of easing? "bounce.out"? */
+                duration: '0.2',
+                stagger: 0.1 /* TODO: Delay between each card? 0.1 seconds? */,
+                ease: "bounce.out"/* TODO: What kind of easing? "bounce.out"? */
             }
         );
         
