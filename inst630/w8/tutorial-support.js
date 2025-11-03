@@ -182,7 +182,7 @@ export function handleMapError(error) {
 export function createRestaurantCards() {
     const cardsContainer = document.querySelector('#restaurant-cards');
     if (!cardsContainer) return;
-    
+    console.log("after return");
     // Clear existing cards
     cardsContainer.innerHTML = '';
     
