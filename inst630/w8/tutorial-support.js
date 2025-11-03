@@ -181,6 +181,7 @@ export function handleMapError(error) {
 
 export function createRestaurantCards() {
     const cardsContainer = document.querySelector('#restaurant-cards');
+    console.log("before return");
     if (!cardsContainer) return;
     console.log("after return");
     // Clear existing cards
