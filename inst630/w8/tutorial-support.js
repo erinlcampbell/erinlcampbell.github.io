@@ -181,9 +181,9 @@ export function handleMapError(error) {
 
 export function createRestaurantCards() {
     const cardsContainer = document.querySelector('#restaurant-cards');
-    console.log("before return");
+    
     if (!cardsContainer) return;
-    console.log("after return");
+    
     // Clear existing cards
     cardsContainer.innerHTML = '';
     
@@ -200,6 +200,7 @@ export function createRestaurantCards() {
             <p class="restaurant-location">${restaurant.neighborhood || 'Unknown location'}</p>
         `;
         cardsContainer.appendChild(card);
+        
     });
 }
 

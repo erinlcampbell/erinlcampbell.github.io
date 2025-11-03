@@ -326,7 +326,7 @@ header p {
     padding: var(--spacing-lg);
     text-align: center;
     opacity: 0; /* Start hidden for GSAP animation */
-    transition: transform 0.3s ease; /* For hover effects */
+    /*transition: transform 0.3s ease; /* For hover effects */
 }
 
 .restaurant-card h4 {
