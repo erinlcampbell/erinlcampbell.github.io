@@ -81,7 +81,7 @@ function createMyChart() {
         // options for charts: https://www.chartjs.org/docs/latest/charts/
         myChart = new Chart(ctx, {
             /* TODO: What type of chart? 'bar', 'pie', 'line'? */
-            type: 'line',
+            type: 'bar',
             data: {
                 labels: chartLabels,
                 datasets: [{
