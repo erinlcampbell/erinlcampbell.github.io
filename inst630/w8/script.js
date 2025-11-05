@@ -104,7 +104,7 @@ function createMyChart() {
                 plugins: {
                     title: {
                         display: true,
-                        text: 'Restaurants by Cuisine'
+                        text: 'Restaurants by Cuisine Type'
                     }
                 },
                 scales: {
