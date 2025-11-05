@@ -81,12 +81,12 @@ function createMyChart() {
         // options for charts: https://www.chartjs.org/docs/latest/charts/
         myChart = new Chart(ctx, {
             /* TODO: What type of chart? 'bar', 'pie', 'line'? */
-            type: 'pie',
+            type: 'line',
             data: {
                 labels: chartLabels,
                 datasets: [{
                     /* TODO: adjust this name */
-                    label: 'name-of-series',
+                    label: 'restaurants',
                     data: chartData,
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.6)',
@@ -104,7 +104,7 @@ function createMyChart() {
                 plugins: {
                     title: {
                         display: true,
-                        text: 'title your chart please'
+                        text: 'Restaurants by Cuisine'
                     }
                 },
                 scales: {
@@ -112,7 +112,7 @@ function createMyChart() {
                         beginAtZero: true,
                         title: {
                             display: true,
-                            text: 'a real y axis has a label'
+                            text: 'Proportion of All Restaurants'
                         }
                     }
                 }
