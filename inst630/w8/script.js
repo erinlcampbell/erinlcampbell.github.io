@@ -112,7 +112,7 @@ function createMyChart() {
                         beginAtZero: true,
                         title: {
                             display: true,
-                            text: 'Proportion of All Restaurants'
+                            text: 'Counts of Restaurants by Cuisine'
                         }
                     }
                 }
