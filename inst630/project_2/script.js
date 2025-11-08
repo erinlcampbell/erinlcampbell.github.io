@@ -3,6 +3,7 @@ import showCategories from './editable_js/template_category.js';
 import showStats from './editable_js/template_stats.js';
 import showTable from './editable_js/template_table.js';
 import initializeSortable from './editable_js/sortable_table.js';
+import animateMyCards from './editable_js/animation.js';
 
 import loadData from './editable_js/load_data.js';
 
@@ -70,6 +71,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Set up button event handlers - this pattern always works!
     document.getElementById("btn-cards").onclick = () => {
       updateDisplay(showCards(data));
+      animateMyCards(data);
       updateButtonStates("cards");
     };
 
@@ -91,6 +93,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Show initial view
     updateDisplay(showCards(data));
+    animateMyCards(data);
     updateButtonStates("cards");
 
     console.log("Application ready!");
