@@ -56,7 +56,7 @@ function animateMyButtons(data) {
             // FROM state (starting point)
             {
                 /* TODO: Starting properties - opacity, scale, y position? */
-                opacity: 0, scale: 1, y: -50
+                opacity: 0, scale: 1, y: -200
             },
             // TO state (ending point)  
             {
