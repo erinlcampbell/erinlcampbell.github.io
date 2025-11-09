@@ -3,7 +3,10 @@ import showCategories from './editable_js/template_category.js';
 import showStats from './editable_js/template_stats.js';
 import showTable from './editable_js/template_table.js';
 import initializeSortable from './editable_js/sortable_table.js';
-import animateMyCards from './editable_js/animation.js';
+import {
+  animateMyCards,
+  animateMyButtons
+ } from './editable_js/animation.js';
 
 import loadData from './editable_js/load_data.js';
 
@@ -66,7 +69,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     showLoading();
     const data = await loadData();
     console.log(`Loaded ${data.length} items from API`);
-
+    document.querySelectorAll(".view-button").forEach((button) => {
+      console.log(button);
+        animateMyButtons(data, button);
+    });
 
     // Set up button event handlers - this pattern always works!
     document.getElementById("btn-cards").onclick = () => {
