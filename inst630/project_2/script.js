@@ -5,7 +5,8 @@ import showTable from './editable_js/template_table.js';
 import initializeSortable from './editable_js/sortable_table.js';
 import {
   animateMyCards,
-  animateMyButtons
+  animateMyButtons,
+  animateDisplay
  } from './editable_js/animation.js';
 
 import loadData from './editable_js/load_data.js';
@@ -69,6 +70,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     showLoading();
     const data = await loadData();
     console.log(`Loaded ${data.length} items from API`);
+    //add the animations for each button
     document.querySelectorAll(".view-button").forEach((button) => {
       console.log(button);
         animateMyButtons(data, button);
@@ -76,23 +78,32 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Set up button event handlers - this pattern always works!
     document.getElementById("btn-cards").onclick = () => {
+      //animate fade in and out of display once new display is selected
+      animateDisplay(data);
       updateDisplay(showCards(data));
+      //animate cards after they are created in the updated display
       animateMyCards(data);
       updateButtonStates("cards");
     };
 
     document.getElementById("btn-table").onclick = () => {
+      //animate fade in and out of display once new display is selected
+      animateDisplay(data);
       updateDisplay(showTable(data));
       initializeSortable();
       updateButtonStates("table");
     };
 
     document.getElementById("btn-categories").onclick = () => {
+      //animate fade in and out of display once new display is selected
+      animateDisplay(data);
       updateDisplay(showCategories(data));
       updateButtonStates("categories");
     };
 
     document.getElementById("btn-stats").onclick = () => {
+      //animate fade in and out of display once new display is selected
+      animateDisplay(data);
       updateDisplay(showStats(data));
       updateButtonStates("stats");
     };

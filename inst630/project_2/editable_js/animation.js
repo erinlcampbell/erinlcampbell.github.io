@@ -1,12 +1,14 @@
+
+//Animate cards so that they drop in an bounce when dropped
 export function animateMyCards(data) {
     // Step 1: Check if GSAP is available
     if (typeof gsap === 'undefined') {
-        alert('GSAP not available. Check console.');
+        console.log('GSAP not available. Check console.');
         return;
     }
 
     if (data.length === 0) {
-        alert('No data loaded. Click "Load Data" first.');
+        console.log('No data loaded. Click "Load Data" first.');
         return;
     }
     
@@ -15,21 +17,60 @@ export function animateMyCards(data) {
         gsap.fromTo('.restaurant-card', 
             // FROM state (starting point)
             {
-                /* TODO: Starting properties - opacity, scale, y position? */
-                opacity: 0, scale: 1, y: -100
+                
+                opacity: 0, scale: 1, y: -100 //start up to drop down
             },
             // TO state (ending point)  
             {
-                /* TODO: Ending properties - make them fully visible and normal size */
+                
                 opacity: 1,
                 duration: 0.2,
-                stagger: 0.1 /* TODO: Delay between each card? 0.1 seconds? */,
-                y:0,
-                ease: "bounce.out"/* TODO: What kind of easing? "bounce.out"? */
+                stagger: 0.1 ,
+                y:0, //drop to desired point
+                ease: "bounce.out" //bounces on drop
             }
         );
         
         console.log('Animation created successfully!');
+        
+    } catch (error) {
+       console.log(error); 
+    }
+
+    
+}
+
+//Animate display so that it fades in an out when a new view is brought up, allowing for a more smooth viewing experience
+export function animateDisplay(data) {
+    // Step 1: Check if GSAP is available
+    if (typeof gsap === 'undefined') {
+        console.log('GSAP not available. Check console.');
+        return;
+    }
+
+    if (data.length === 0) {
+        console.log('No data loaded. Click "Load Data" first.');
+        return;
+    }
+    
+    try {
+
+        let display = document.getElementById("data-display");
+        gsap.fromTo(display, 
+                // FROM state (starting point)
+                {
+                    
+                    opacity: 0 //erases view and then...
+                },
+                // TO state (ending point)  
+                {
+                    
+                    opacity: 1, //view reappears with a fade in of one second
+                    duration: 1
+                }
+            );
+            
+            console.log('Button Animation created successfully!');
         
     } catch (error) {
        console.log(error); // Error handling provided in support file
@@ -38,24 +79,22 @@ export function animateMyCards(data) {
     
 }
 
+//Animate buttons so that when hovered, the button size increases, popping out at the user. This shows the user that the button is selectable.
 export function animateMyButtons(data, button) {
     // Step 1: Check if GSAP is available
     if (typeof gsap === 'undefined') {
-        alert('GSAP not available. Check console.');
+        console.log('GSAP not available. Check console.');
         return;
     }
 
     if (data.length === 0) {
-        alert('No data loaded. Click "Load Data" first.');
+        console.log('No data loaded. Click "Load Data" first.');
         return;
     }
     
     try {
-        
-        
-
-        console.log(button);
-
+  
+        //on hover, increase the scale
         button.addEventListener("mouseenter", () => {
             let animation = gsap.to(button, 
             
@@ -67,6 +106,8 @@ export function animateMyButtons(data, button) {
         );
             animation.play()
         });
+
+        //when the user hovers away, return to normal size
         button.addEventListener("mouseleave", () => {
             let animation = gsap.to(button, 
             
@@ -87,4 +128,3 @@ export function animateMyButtons(data, button) {
 
     
 }
-
