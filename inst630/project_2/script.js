@@ -6,7 +6,8 @@ import initializeSortable from './editable_js/sortable_table.js';
 import {
   animateMyCards,
   animateMyButtons,
-  animateDisplay
+  animateDisplay,
+  animateMyCardsHover
  } from './editable_js/animation.js';
 
 import loadData from './editable_js/load_data.js';
@@ -83,6 +84,10 @@ document.addEventListener("DOMContentLoaded", async () => {
       updateDisplay(showCards(data));
       //animate cards after they are created in the updated display
       animateMyCards(data);
+      document.querySelectorAll(".restaurant-card").forEach((card) => {
+      console.log(card);
+        animateMyCardsHover(data, card);
+    });
       updateButtonStates("cards");
     };
 
@@ -111,6 +116,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Show initial view
     updateDisplay(showCards(data));
     animateMyCards(data);
+    document.querySelectorAll(".restaurant-card").forEach((card) => {
+      console.log(card);
+        animateMyCardsHover(data, card);
+    });
     updateButtonStates("cards");
 
     console.log("Application ready!");

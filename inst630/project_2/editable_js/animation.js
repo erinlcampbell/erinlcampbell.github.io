@@ -128,3 +128,52 @@ export function animateMyButtons(data, button) {
 
     
 }
+
+export function animateMyCardsHover(data, card) {
+    // Step 1: Check if GSAP is available
+    if (typeof gsap === 'undefined') {
+        console.log('GSAP not available. Check console.');
+        return;
+    }
+
+    if (data.length === 0) {
+        console.log('No data loaded. Click "Load Data" first.');
+        return;
+    }
+    
+    try {
+  
+        //on hover, increase the scale
+        card.addEventListener("mouseenter", () => {
+            let animation = gsap.to(card, 
+            
+            // TO state (ending point)  
+            {
+                
+                scale: 1.10
+            }
+        );
+            animation.play()
+        });
+
+        //when the user hovers away, return to normal size
+        card.addEventListener("mouseleave", () => {
+            let animation = gsap.to(card, 
+            
+            // TO state (ending point)  
+            {
+                
+                scale: 1
+            }
+        );
+            animation.play()
+        });
+        
+        console.log('Hover Animation created successfully!');
+        
+    } catch (error) {
+       console.log(error); // Error handling provided in support file
+    }
+
+    
+}
