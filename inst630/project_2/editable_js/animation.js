@@ -24,7 +24,7 @@ export function animateMyCards(data) {
             {
                 
                 opacity: 1,
-                duration: 0.2,
+                duration: 1,
                 stagger: 0.1 ,
                 y:0, //drop to desired point
                 ease: "bounce.out" //bounces on drop
@@ -101,7 +101,7 @@ export function animateMyButtons(data, button) {
             // TO state (ending point)  
             {
                 
-                scale: 1.25
+                scale: 1.25 
             }
         );
             animation.play()
@@ -152,6 +152,7 @@ export function animateMyCardsHover(data, card) {
             {
                 
                 scale: 1.10
+                
             }
         );
             animation.play()
@@ -164,7 +165,8 @@ export function animateMyCardsHover(data, card) {
             // TO state (ending point)  
             {
                 
-                scale: 1
+                scale: 1,
+                ease: "bounce.out"
             }
         );
             animation.play()
