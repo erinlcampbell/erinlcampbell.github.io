@@ -84,6 +84,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       updateDisplay(showCards(data));
       //animate cards after they are created in the updated display
       animateMyCards(data);
+      //add animations to each card for hovering
       document.querySelectorAll(".restaurant-card").forEach((card) => {
       console.log(card);
         animateMyCardsHover(data, card);

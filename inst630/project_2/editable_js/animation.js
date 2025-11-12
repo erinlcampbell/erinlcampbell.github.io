@@ -129,6 +129,7 @@ export function animateMyButtons(data, button) {
     
 }
 
+//Make the cards slightly bigger when the user hovers over them so they are aware of their selection and the information is made more clear.
 export function animateMyCardsHover(data, card) {
     // Step 1: Check if GSAP is available
     if (typeof gsap === 'undefined') {
