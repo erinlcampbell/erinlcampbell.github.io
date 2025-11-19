@@ -7,7 +7,7 @@
 async function loadData() {
   try {
 
-    const response = await fetch ("http://acnhapi.com/v1/fish")
+    const response = await fetch ("https://acnhapi.com/v1/fish")
     const data = await response.json();
     console.log("data loaded", data);
 
