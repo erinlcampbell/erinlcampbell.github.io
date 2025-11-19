@@ -7,7 +7,10 @@
 async function loadData() {
   try {
 
-    const response = await fetch ("https://acnhapi.com/v1/fish")
+    const apiUrl = `http://acnhapi.com/v1/fish`;
+    const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(apiUrl)}`;
+
+    const response = await fetch (proxyUrl)
     const data = await response.json();
     console.log("data loaded", data);
 
