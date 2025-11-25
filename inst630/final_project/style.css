@@ -1,6 +1,6 @@
 @font-face {
-    font-family: mario-text;
-    src: url(fonts/mario_kart_f2.ttf)
+    font-family: ac-text;
+    src: url(fonts/FOT-Seurat\ Pro\ B.otf)
 }
 
 /* BASE STYLES - Students can modify and extend */
@@ -18,7 +18,7 @@ body {
     font-family: system-ui, sans-serif;
     margin: 0;
     padding: 1rem;
-    background-image: url(https://i.pinimg.com/736x/61/06/eb/6106eb7ec5faa81f5f69bf6c1867b114.jpg);
+    background-image: url(https://animalcrossingworld.com/wp-content/uploads/2020/02/Switch_ACNH_0220-Direct_Seasons_SCRN_02.jpg);
     /*background: var(--background-color);*/
     color: var(--text-color);
     background-size: cover;
@@ -33,7 +33,7 @@ body {
     header{
         color: white;
         h1 {
-            font-family: mario-text, system-ui, sans-serif;
+            font-family: ac-text, system-ui, sans-serif;
         }
     }
 }
@@ -65,11 +65,11 @@ body {
 }
 
 .display-container {
-    background: var(--card-background);
+    
     border-radius: 8px;
     padding: 2rem;
     min-height: 400px;
-    box-shadow: var(--shadow);
+    
 }
 
 .loading {
@@ -77,6 +77,10 @@ body {
     color: #666;
     font-style: italic;
     padding: 2rem;
+}
+
+.animalImage{
+    filter: drop-shadow(5px 5px 5px #222);
 }
 
 .error {
@@ -90,7 +94,7 @@ body {
 
 /* UTILITY CLASSES FOR STUDENTS */
 .view-title {
-    font-family: mario-text, system-ui, sans-serif;
+    font-family: ac-text, system-ui, sans-serif;
     margin: 0 0 1rem 0;
     color: var(--text-color);
     border-bottom: 2px solid #eee;
@@ -111,31 +115,46 @@ body {
     font-style: italic;
 }
 
-/* CARD GRID LAYOUT */
-.card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.5rem;
-
-    img{
-        max-width: 230px;
-        padding-bottom: 30px;
-        padding-left: 30px;
-    }
+.scrollContainer{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    gap: 50px;
 }
 
-.restaurant-card {
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    padding: 1.5rem;
-    background: var(--card-background);
-    /*transition: transform 0.2s, box-shadow 0.2s;*/
+.season{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    gap: 50px;
 }
 
-/*.restaurant-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}*/
+.animalObject{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+}
+
+.description{
+    background-color: #FFF9E5;
+    font-family: ac-text, system-ui, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 30px 80px;
+    border-radius: 30px;
+}
+
+h5{
+    margin: 0px;
+}
+
+h3{
+    margin:5px;
+}
+
 
 /* TABLE LAYOUT */
 .restaurant-table {
