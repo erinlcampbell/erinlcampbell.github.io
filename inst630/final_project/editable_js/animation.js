@@ -1,7 +1,10 @@
 
+
+    gsap.registerPlugin(ScrollTrigger); // Register the plugin
 //Animate cards so that they drop in an bounce when dropped
-export function animateMyCards(data) {
+export function animateSeasons(data) {
     // Step 1: Check if GSAP is available
+    
     if (typeof gsap === 'undefined') {
         console.log('GSAP not available. Check console.');
         return;
@@ -13,23 +16,92 @@ export function animateMyCards(data) {
     }
     
     try {
-        
-        gsap.fromTo('.restaurant-card', 
+        gsap.to('body', 
             // FROM state (starting point)
             {
                 
-                opacity: 0, scale: 1, y: -100 //start up to drop down
-            },
-            // TO state (ending point)  
-            {
-                
-                opacity: 1,
-                duration: 1,
-                stagger: 0.1 ,
-                y:0, //drop to desired point
-                ease: "bounce.out" //bounces on drop
+                scrollTrigger: '.spring',
+                backgroundImage: "url(img/spring.png)"
             }
         );
+
+        // Add a div overlay for the new background
+        const bgOverlay1 = document.createElement('div');
+        bgOverlay1.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url(img/summer.png);
+        background-size: cover;
+        background-position: center;
+        opacity: 0;
+        z-index: -3;
+        `;
+        document.body.prepend(bgOverlay1);
+
+        // Animate the overlay
+        gsap.to(bgOverlay1, {
+        scrollTrigger: {
+            trigger: ".summer",
+            start: "top center",
+        },
+        opacity: 1,
+        duration: 1,
+        ease: "power2.inOut"
+        });
+
+        const bgOverlay2 = document.createElement('div');
+        bgOverlay2.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url(img/fall.png);
+        background-size: cover;
+        background-position: center;
+        opacity: 0;
+        z-index: -2;
+        `;
+        document.body.prepend(bgOverlay2);
+
+
+        gsap.to(bgOverlay2, {
+        scrollTrigger: {
+            trigger: ".fall",
+            start: "top center",
+        },
+        opacity: 1,
+        duration: 1,
+        ease: "power2.inOut"
+        });
+
+        const bgOverlay3 = document.createElement('div');
+        bgOverlay3.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url(img/winter.jpg);
+        background-size: cover;
+        background-position: center;
+        opacity: 0;
+        z-index: -1;
+        `;
+        document.body.prepend(bgOverlay3);
+
+        gsap.to(bgOverlay3, {
+        scrollTrigger: {
+            trigger: ".winter",
+            start: "top center",
+        },
+        opacity: 1,
+        duration: 1,
+        ease: "power2.inOut"
+        });
         
         console.log('Animation created successfully!');
         
