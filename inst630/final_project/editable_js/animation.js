@@ -151,6 +151,44 @@ export function animateDisplay(data) {
     
 }
 
+export function animateRolodex(data, animal) {
+    // Step 1: Check if GSAP is available
+    if (typeof gsap === 'undefined') {
+        console.log('GSAP not available. Check console.');
+        return;
+    }
+
+    if (data.length === 0) {
+        console.log('No data loaded. Click "Load Data" first.');
+        return;
+    }
+    
+    try {
+  
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: animal,
+                markers: true,
+                start: "top 50%",
+                end: "top 0%",
+                scrub: true
+            }
+        });
+
+        tl.fromTo(animal, { scale: 0.3}, {scale: 1})
+        .fromTo(animal, { scale: 1}, {scale: 0.3});
+
+        
+        
+        console.log('Button Animation created successfully!');
+        
+    } catch (error) {
+       console.log(error); // Error handling provided in support file
+    }
+
+    
+}
+
 //Animate buttons so that when hovered, the button size increases, popping out at the user. This shows the user that the button is selectable.
 export function animateMyButtons(data, button) {
     // Step 1: Check if GSAP is available

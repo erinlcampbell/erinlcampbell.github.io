@@ -3,7 +3,8 @@ import showCreatures from './editable_js/template_sea_creature.js';
 import showBugs from './editable_js/template_bug.js';
 import initializeSortable from './editable_js/sortable_table.js';
 import {
-  animateSeasons
+  animateSeasons,
+  animateRolodex
  } from './editable_js/animation.js';
 
 import loadData from './editable_js/load_data.js';
@@ -105,10 +106,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Show initial view
     updateDisplay(showFish(data));
     animateSeasons(data);
-    //document.querySelectorAll(".restaurant-card").forEach((card) => {
-      //console.log(card);
-        //animateMyCardsHover(data, card);
-    //});
+    animateRolodex(data);
+    document.querySelectorAll(".animalObject").forEach((animal) => {
+      animateRolodex(data, animal);
+    });
     updateButtonStates("fish");
 
     console.log("Application ready!");
