@@ -9,6 +9,7 @@ function showFish(data) {
        /*html*/ 
       (fish) => `
                 <div class="animalObject">
+                  <div class="catchphrase">${fish["Catch phrase"]}</div>
                   <img class="animalImage" src="${fish.Image_Url}" alt="">
                   <div class="description">
                     <h3 class="animalName">${fish.Name}</h3>
@@ -63,6 +64,7 @@ function showFish(data) {
        /*html*/ 
       (fish) => `
                 <div class="animalObject">
+                  
                   <img class="animalImage" src="${fish.Image_Url}" alt="">
                   <div class="description">
                     <h3 class="animalName">${fish.Name}</h3>

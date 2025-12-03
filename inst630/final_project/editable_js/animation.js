@@ -1,6 +1,7 @@
 
 
     gsap.registerPlugin(ScrollTrigger); // Register the plugin
+    gsap.registerPlugin(CustomEase, CustomWiggle); 
 //Animate cards so that they drop in an bounce when dropped
 export function animateSeasons(data) {
     // Step 1: Check if GSAP is available
@@ -190,7 +191,7 @@ export function animateRolodex(data, animal) {
 }
 
 //Animate buttons so that when hovered, the button size increases, popping out at the user. This shows the user that the button is selectable.
-export function animateMyButtons(data, button) {
+export function animateWiggle(data, animalImage) {
     // Step 1: Check if GSAP is available
     if (typeof gsap === 'undefined') {
         console.log('GSAP not available. Check console.');
@@ -203,34 +204,15 @@ export function animateMyButtons(data, button) {
     }
     
     try {
+        CustomWiggle.create("myWiggle", {wiggles: 6, type: "easeOut"});
   
         //on hover, increase the scale
-        button.addEventListener("mouseenter", () => {
-            let animation = gsap.to(button, 
-            
-            // TO state (ending point)  
-            {
-                
-                scale: 1.25 
-            }
-        );
-            animation.play()
+        animalImage.addEventListener("mouseenter", () => {
+            gsap.to(animalImage, {duration: 1, rotation: 10, ease: "myWiggle"});
         });
 
-        //when the user hovers away, return to normal size
-        button.addEventListener("mouseleave", () => {
-            let animation = gsap.to(button, 
-            
-            // TO state (ending point)  
-            {
-                
-                scale: 1
-            }
-        );
-            animation.play()
-        });
         
-        console.log('Button Animation created successfully!');
+        console.log('Wiggle Animation created successfully!');
         
     } catch (error) {
        console.log(error); // Error handling provided in support file

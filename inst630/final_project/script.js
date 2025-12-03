@@ -4,7 +4,8 @@ import showBugs from './editable_js/template_bug.js';
 import initializeSortable from './editable_js/sortable_table.js';
 import {
   animateSeasons,
-  animateRolodex
+  animateRolodex,
+  animateWiggle
  } from './editable_js/animation.js';
 
 import loadData from './editable_js/load_data.js';
@@ -109,6 +110,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     animateRolodex(data);
     document.querySelectorAll(".animalObject").forEach((animal) => {
       animateRolodex(data, animal);
+    });
+    document.querySelectorAll(".animalImage").forEach((animalImage) => {
+      animateWiggle(data, animalImage);
     });
     updateButtonStates("fish");
 
