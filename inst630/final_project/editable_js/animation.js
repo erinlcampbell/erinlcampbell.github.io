@@ -165,19 +165,21 @@ export function animateRolodex(data, animal) {
     }
     
     try {
+
+        
   
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: animal,
                 markers: true,
-                start: "top 50%",
-                end: "top 0%",
+                start: "top 100%",
+                end: "60% 0%",
                 scrub: true
             }
         });
 
         tl.fromTo(animal, { scale: 0.3}, {scale: 1})
-        .fromTo(animal, { scale: 1}, {scale: 0.3});
+        .fromTo(animal, {scale: 1}, {scale: 0.3});
 
         
         
