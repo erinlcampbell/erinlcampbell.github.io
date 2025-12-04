@@ -192,6 +192,46 @@ export function animateRolodex(data, animal) {
     
 }
 
+export function animateTitleRolodex(data, title) {
+    // Step 1: Check if GSAP is available
+    if (typeof gsap === 'undefined') {
+        console.log('GSAP not available. Check console.');
+        return;
+    }
+
+    if (data.length === 0) {
+        console.log('No data loaded. Click "Load Data" first.');
+        return;
+    }
+    
+    try {
+
+        
+  
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: title,
+                markers: false,
+                start: "10% 100%",
+                end: "90% 0%",
+                scrub: true
+            }
+        });
+
+        tl.fromTo(title, { scale: 1}, {scale: 2})
+        .fromTo(title, {scale: 2}, {scale: 1});
+
+        
+        
+        console.log('Button Animation created successfully!');
+        
+    } catch (error) {
+       console.log(error); // Error handling provided in support file
+    }
+
+    
+}
+
 //Animate buttons so that when hovered, the button size increases, popping out at the user. This shows the user that the button is selectable.
 export function animateWiggle(data, animalImage) {
     // Step 1: Check if GSAP is available
@@ -240,7 +280,7 @@ export function animateCatchphrase(data) {
         console.log("entered catchphrase try");
         let targets = gsap.utils.toArray(".animalImage");
         let catchphrases = gsap.utils.toArray(".catchphrase");
-        targets = targets.slice(0, 52);
+        //targets = targets.slice(0, 52);
         console.log(catchphrases[0]);
 
         targets.forEach((obj, index) => {

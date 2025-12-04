@@ -119,7 +119,7 @@ body {
 .scrollContainer{
     display: flex;
     flex-direction: column;
-    align-content: center;
+    align-items: center;
     gap: 50px;
 }
 
@@ -161,6 +161,22 @@ body {
     justify-content: center;
     border-radius: 20px;
     opacity: 0;
+}
+
+.seasonTitle{
+    font-family: ac-text, system-ui, sans-serif;
+    font-size: 60px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    filter: drop-shadow(2px 2px 2px #222);
+    padding-bottom:50px;
+}
+
+.seasonIcon{
+    max-width:80px;
 }
 
 h5{
@@ -421,26 +437,25 @@ table.sortable th:not([aria-sort]) button:hover span::after {
 }
 
 @media screen and (width < 420px) {
-    .container{
-        header{
-            h1{
-                font-size: 20px;
-            }
-        }
+    .animalObject{
+        max-width: 350px;
     }
 
-    .view-title{
-        font-size: 15px;
+    .animalImage{
+        max-width: 300px;
+        max-height: 200px;
     }
 
-    table.sortable td,
-    table.sortable th {
-        padding: 0.05em 0.05em;
-        width: 4em;
-        font-size: 8px;
+    .seasonTitle{
+        max-width: 400px;
+        font-size:30px;
     }
 
-    .category-item{
-        font-size: 12px;
+    .seasonIcon{
+        max-width: 30px;
+    }
+
+    .catchphrase{
+        max-width:330px;
     }
 }

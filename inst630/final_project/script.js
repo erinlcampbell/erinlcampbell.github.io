@@ -5,6 +5,7 @@ import initializeSortable from './editable_js/sortable_table.js';
 import {
   animateSeasons,
   animateRolodex,
+  animateTitleRolodex,
   animateWiggle,
   animateCatchphrase
  } from './editable_js/animation.js';
@@ -111,6 +112,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     animateRolodex(data);
     document.querySelectorAll(".animalObject").forEach((animal) => {
       animateRolodex(data, animal);
+    });
+    document.querySelectorAll(".seasonTitle").forEach((title) => {
+      animateTitleRolodex(data, title);
     });
     document.querySelectorAll(".animalImage").forEach((animalImage) => {
       animateWiggle(data, animalImage);

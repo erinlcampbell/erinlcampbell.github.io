@@ -28,6 +28,7 @@ function showFish(data) {
        /*html*/ 
       (fish) => `
                 <div class="animalObject">
+                  <div class="catchphrase">${fish["Catch phrase"]}</div>
                   <img class="animalImage" src="${fish.Image_Url}" alt="">
                   <div class="description">
                     <h3 class="animalName">${fish.Name}</h3>
@@ -46,6 +47,7 @@ function showFish(data) {
        /*html*/ 
       (fish) => `
                 <div class="animalObject">
+                  <div class="catchphrase">${fish["Catch phrase"]}</div>
                   <img class="animalImage" src="${fish.Image_Url}" alt="">
                   <div class="description">
                     <h3 class="animalName">${fish.Name}</h3>
@@ -64,7 +66,7 @@ function showFish(data) {
        /*html*/ 
       (fish) => `
                 <div class="animalObject">
-                  
+                  <div class="catchphrase">${fish["Catch phrase"]}</div>
                   <img class="animalImage" src="${fish.Image_Url}" alt="">
                   <div class="description">
                     <h3 class="animalName">${fish.Name}</h3>
@@ -81,19 +83,19 @@ function showFish(data) {
   return `
                 <div class="scrollerContainer">
                   <div class="season spring">
-                    <h2>Spring</h2>
+                     <div class="seasonTitle"><img class="seasonIcon" src="img/flower.png" alt=""> Spring <img class="seasonIcon" src="img/flower.png" alt=""></div>
                     ${fishSpringHTML}
                   </div>
                   <div class="season summer">
-                    <h2>Summer</h2>
+                    <div class="seasonTitle"><img class="seasonIcon" src="img/shell.png" alt=""> Summer <img class="seasonIcon" src="img/shell.png" alt=""></div>
                     ${fishSummerHTML}
                   </div>
                   <div class="season fall">
-                    <h2>Fall</h2>
+                     <div class="seasonTitle"><img class="seasonIcon" src="img/mushroom.png" alt=""> Fall <img class="seasonIcon" src="img/mushroom.png" alt=""></div>
                     ${fishFallHTML}
                   </div>
                   <div class="season winter">
-                    <h2>Winter</h2>
+                     <div class="seasonTitle"><img class="seasonIcon" src="img/snowflake.png" alt=""> Winter <img class="seasonIcon" src="img/snowflake.png" alt=""></div>
                     ${fishWinterHTML}
                   </div>
                 </div>
