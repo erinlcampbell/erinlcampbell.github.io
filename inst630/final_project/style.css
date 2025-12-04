@@ -127,7 +127,7 @@ body {
     display: flex;
     flex-direction: column;
     align-content: center;
-    gap: 50px;
+    gap: 0px;
 }
 
 .animalObject{
@@ -154,6 +154,13 @@ body {
     font-family: ac-text, system-ui, sans-serif;
     font-size: 10px;
     background-color: #FFF9E5;
+    width: 330px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    opacity: 0;
 }
 
 h5{

@@ -171,9 +171,9 @@ export function animateRolodex(data, animal) {
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: animal,
-                markers: true,
-                start: "top 100%",
-                end: "60% 0%",
+                markers: false,
+                start: "10% 100%",
+                end: "90% 0%",
                 scrub: true
             }
         });
@@ -215,6 +215,49 @@ export function animateWiggle(data, animalImage) {
 
         
         console.log('Wiggle Animation created successfully!');
+        
+    } catch (error) {
+       console.log(error); // Error handling provided in support file
+    }
+
+    
+}
+
+//Animate buttons so that when hovered, the button size increases, popping out at the user. This shows the user that the button is selectable.
+export function animateCatchphrase(data) {
+    // Step 1: Check if GSAP is available
+    if (typeof gsap === 'undefined') {
+        console.log('GSAP not available. Check console.');
+        return;
+    }
+
+    if (data.length === 0) {
+        console.log('No data loaded. Click "Load Data" first.');
+        return;
+    }
+    
+    try {
+        console.log("entered catchphrase try");
+        let targets = gsap.utils.toArray(".animalImage");
+        let catchphrases = gsap.utils.toArray(".catchphrase");
+        targets = targets.slice(0, 52);
+        console.log(catchphrases[0]);
+
+        targets.forEach((obj, index) => {
+
+            let catchphraseAnimation = gsap.to(catchphrases[index], { opacity: 1, duration: 0.2 }).reversed(true);
+            obj.addEventListener("click", function (e) {
+                animationReverse(catchphraseAnimation);
+            });
+        });
+
+        function animationReverse(animation) {
+            console.log("clicked!");
+            animation.reversed(!animation.reversed());
+        }
+
+        
+        console.log('Catchphrase Animation created successfully!');
         
     } catch (error) {
        console.log(error); // Error handling provided in support file

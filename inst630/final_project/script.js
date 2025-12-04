@@ -5,7 +5,8 @@ import initializeSortable from './editable_js/sortable_table.js';
 import {
   animateSeasons,
   animateRolodex,
-  animateWiggle
+  animateWiggle,
+  animateCatchphrase
  } from './editable_js/animation.js';
 
 import loadData from './editable_js/load_data.js';
@@ -114,6 +115,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.querySelectorAll(".animalImage").forEach((animalImage) => {
       animateWiggle(data, animalImage);
     });
+    animateCatchphrase(data);
     updateButtonStates("fish");
 
     console.log("Application ready!");
