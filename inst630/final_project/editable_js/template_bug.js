@@ -8,30 +8,97 @@
  * Display data in sortable rows - good for scanning specific information
  */
 function showBugs(data) {
-  // TODO: Students implement this function
-  // Requirements:
-  // - Show data in a table format
-  // - Include all important fields
-  // - Make it easy to scan and compare
-  // - Consider adding sorting functionality
-  /*html*/ 
-    console.log("show table entered");
-    // Initialize sortable table buttons
-    
-  const cardHTML = data
+  const bugsSpringHTML = data.bugs.spring
     .map(
        /*html*/ 
-      (camera) => `
-                test
+      (bug) => `
+                <div class="animalObject">
+                  <div class="catchphrase">${bug["Catch phrase"]}</div>
+                  <img class="animalImage" src="${bug.Image_Url}" alt="">
+                  <div class="description">
+                    <h3 class="animalName">${bug.Name}</h3>
+                    <h5 class="bells">Bells: ${bug.Sell}</h5>
+                    <h5 class="location">Location: ${bug["Where/How"]}</h5>
+                    <h5 class="weather">Weather: ${bug["Weather"]}</h5>
+                  </div>
+                </div>
+            `
+    )
+    .join("");
+
+    const bugsSummerHTML = data.bugs.summer
+    .map(
+       /*html*/ 
+      (bug) => `
+                <div class="animalObject">
+                  <div class="catchphrase">${bug["Catch phrase"]}</div>
+                  <img class="animalImage" src="${bug.Image_Url}" alt="">
+                  <div class="description">
+                    <h3 class="animalName">${bug.Name}</h3>
+                    <h5 class="bells">Bells: ${bug.Sell}</h5>
+                    <h5 class="location">Location: ${bug["Where/How"]}</h5>
+                    <h5 class="weather">Weather: ${bug["Weather"]}</h5>
+                  </div>
+                </div>
+            `
+    )
+    .join("");
+
+    const bugsFallHTML = data.bugs.fall
+    .map(
+       /*html*/ 
+      (bug) => `
+                <div class="animalObject">
+                  <div class="catchphrase">${bug["Catch phrase"]}</div>
+                  <img class="animalImage" src="${bug.Image_Url}" alt="">
+                  <div class="description">
+                    <h3 class="animalName">${bug.Name}</h3>
+                    <h5 class="bells">Bells: ${bug.Sell}</h5>
+                    <h5 class="location">Location: ${bug["Where/How"]}</h5>
+                    <h5 class="weather">Weather: ${bug["Weather"]}</h5>
+                  </div>
+                </div>
+            `
+    )
+    .join("");
+
+    const bugsWinterHTML = data.bugs.winter
+    .map(
+       /*html*/ 
+      (bug) => `
+                <div class="animalObject">
+                  <div class="catchphrase">${bug["Catch phrase"]}</div>
+                  <img class="animalImage" src="${bug.Image_Url}" alt="">
+                  <div class="description">
+                    <h3 class="animalName">${bug.Name}</h3>
+                    <h5 class="bells">Bells: ${bug.Sell}</h5>
+                    <h5 class="location">Location: ${bug["Where/How"]}</h5>
+                    <h5 class="weather">Weather: ${bug["Weather"]}</h5>
+                  </div>
+                </div>
             `
     )
     .join("");
      /*html*/ 
   return `
-                <h2 class="view-title"><img class="view_image" src="https://preview.redd.it/share-your-ideas-a-new-luigi-themed-race-course-for-the-v0-dy10mrt217cc1.jpeg?width=640&crop=smart&auto=webp&s=01a4f28bac8072a0584f15fedad3a883c0451048" alt="luigi"> Table View</h2>
-                
-                ${cardHTML}
-                       
+                <div class="scrollerContainer">
+                  <div class="season spring bugs">
+                     <div class="seasonTitle"><img class="seasonIcon" src="img/flower.png" alt=""> Spring <img class="seasonIcon" src="img/flower.png" alt=""></div>
+                    ${bugsSpringHTML}
+                  </div>
+                  <div class="season summer bugs">
+                    <div class="seasonTitle"><img class="seasonIcon" src="img/shell.png" alt=""> Summer <img class="seasonIcon" src="img/shell.png" alt=""></div>
+                    ${bugsSummerHTML}
+                  </div>
+                  <div class="season fall bugs">
+                     <div class="seasonTitle"><img class="seasonIcon" src="img/mushroom.png" alt=""> Fall <img class="seasonIcon" src="img/mushroom.png" alt=""></div>
+                    ${bugsFallHTML}
+                  </div>
+                  <div class="season winter bugs">
+                     <div class="seasonTitle"><img class="seasonIcon" src="img/snowflake.png" alt=""> Winter <img class="seasonIcon" src="img/snowflake.png" alt=""></div>
+                    ${bugsWinterHTML}
+                  </div>
+                </div>
             `;
 }
 

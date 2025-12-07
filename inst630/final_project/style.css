@@ -3,6 +3,10 @@
     src: url(fonts/FOT-Seurat\ Pro\ B.otf)
 }
 
+@font-face {
+    font-family: ac-dialogue;
+    src: url(fonts/FOT-RodinBokutoh\ Pro\ EB.otf)
+}
 /* BASE STYLES - Students can modify and extend */
 :root {
     --primary-color: #e31401;
@@ -142,6 +146,7 @@ body {
 .description{
     background-color: #FFF9E5;
     font-family: ac-text, system-ui, sans-serif;
+    color:#74664B;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -155,6 +160,7 @@ body {
     font-size: 10px;
     background-color: #FFF9E5;
     width: 330px;
+    color:#74664B;
     height: 70px;
     display: flex;
     align-items: center;
@@ -164,7 +170,7 @@ body {
 }
 
 .seasonTitle{
-    font-family: ac-text, system-ui, sans-serif;
+    font-family: ac-dialogue, system-ui, sans-serif;
     font-size: 60px;
     color: white;
     display: flex;

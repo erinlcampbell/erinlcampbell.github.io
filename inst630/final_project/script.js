@@ -3,7 +3,9 @@ import showCreatures from './editable_js/template_sea_creature.js';
 import showBugs from './editable_js/template_bug.js';
 import initializeSortable from './editable_js/sortable_table.js';
 import {
-  animateSeasons,
+  animateSeasonsFish,
+  animateSeasonsBugs,
+  animateSeasonsCreatures,
   animateRolodex,
   animateTitleRolodex,
   animateWiggle,
@@ -79,13 +81,19 @@ document.addEventListener("DOMContentLoaded", async () => {
       
 
       updateDisplay(showFish(data));
-      //animate cards after they are created in the updated display
-      //animateMyCards(data);
-      //add animations to each card for hovering
-      //document.querySelectorAll(".restaurant-card").forEach((card) => {
-      //console.log(card);
-        //animateMyCardsHover(data, card);
-    //});
+      animateSeasonsFish(data);
+    
+      document.querySelectorAll(".animalObject").forEach((animal) => {
+        animateRolodex(data, animal);
+      });
+      document.querySelectorAll(".seasonTitle").forEach((title) => {
+        animateTitleRolodex(data, title);
+      });
+      document.querySelectorAll(".animalImage").forEach((animalImage) => {
+        animateWiggle(data, animalImage);
+      });
+
+      animateCatchphrase(data);
       updateButtonStates("fish");
     };
 
@@ -93,7 +101,19 @@ document.addEventListener("DOMContentLoaded", async () => {
       //animate fade in and out of display once new display is selected
       //animateDisplay(data);
       updateDisplay(showBugs(data));
-      initializeSortable();
+      animateSeasonsBugs(data);
+    
+      document.querySelectorAll(".animalObject").forEach((animal) => {
+         animateRolodex(data, animal);
+      });
+      document.querySelectorAll(".seasonTitle").forEach((title) => {
+        animateTitleRolodex(data, title);
+      });
+      document.querySelectorAll(".animalImage").forEach((animalImage) => {
+        animateWiggle(data, animalImage);
+      });
+      animateCatchphrase(data);
+
       updateButtonStates("bugs");
     };
 
@@ -101,6 +121,20 @@ document.addEventListener("DOMContentLoaded", async () => {
       //animate fade in and out of display once new display is selected
       //animateDisplay(data);
       updateDisplay(showCreatures(data));
+      
+      animateSeasonsCreatures(data);
+
+      document.querySelectorAll(".animalObject").forEach((animal) => {
+         animateRolodex(data, animal);
+      });
+      document.querySelectorAll(".seasonTitle").forEach((title) => {
+        animateTitleRolodex(data, title);
+      });
+      document.querySelectorAll(".animalImage").forEach((animalImage) => {
+        animateWiggle(data, animalImage);
+      });
+      animateCatchphrase(data);
+
       updateButtonStates("creatures");
     };
 
@@ -108,8 +142,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Show initial view
     updateDisplay(showFish(data));
-    animateSeasons(data);
-    animateRolodex(data);
+    animateSeasonsFish(data);
+    
     document.querySelectorAll(".animalObject").forEach((animal) => {
       animateRolodex(data, animal);
     });

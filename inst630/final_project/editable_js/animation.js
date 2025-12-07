@@ -3,8 +3,13 @@
     gsap.registerPlugin(ScrollTrigger); // Register the plugin
     gsap.registerPlugin(CustomEase, CustomWiggle); 
 //Animate cards so that they drop in an bounce when dropped
-export function animateSeasons(data) {
+export function animateSeasonsFish(data) {
     // Step 1: Check if GSAP is available
+    console.log("started animation fish");
+    ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    document.querySelectorAll('.season-overlay').forEach(el => el.remove());
+    console.log("all triggers killed");
+
     
     if (typeof gsap === 'undefined') {
         console.log('GSAP not available. Check console.');
@@ -21,13 +26,17 @@ export function animateSeasons(data) {
             // FROM state (starting point)
             {
                 
-                scrollTrigger: '.spring',
-                backgroundImage: "url(img/spring.png)"
+                scrollTrigger: '.spring.fish',
+                backgroundImage: "url(img/spring.png)",
+                markers: true
             }
         );
 
+        
+
         // Add a div overlay for the new background
         const bgOverlay1 = document.createElement('div');
+        bgOverlay1.classList.add('season-overlay');
         bgOverlay1.style.cssText = `
         position: fixed;
         top: 0;
@@ -42,18 +51,23 @@ export function animateSeasons(data) {
         `;
         document.body.prepend(bgOverlay1);
 
+        
         // Animate the overlay
         gsap.to(bgOverlay1, {
         scrollTrigger: {
-            trigger: ".summer",
+            trigger: ".summer.fish",
             start: "top center",
+            markers: true
         },
         opacity: 1,
         duration: 1,
         ease: "power2.inOut"
         });
 
+        
+
         const bgOverlay2 = document.createElement('div');
+        bgOverlay2.classList.add('season-overlay');
         bgOverlay2.style.cssText = `
         position: fixed;
         top: 0;
@@ -71,15 +85,19 @@ export function animateSeasons(data) {
 
         gsap.to(bgOverlay2, {
         scrollTrigger: {
-            trigger: ".fall",
+            trigger: ".fall.fish",
             start: "top center",
+            markers: true
         },
         opacity: 1,
         duration: 1,
         ease: "power2.inOut"
         });
 
+        
+
         const bgOverlay3 = document.createElement('div');
+        bgOverlay3.classList.add('season-overlay');
         bgOverlay3.style.cssText = `
         position: fixed;
         top: 0;
@@ -96,8 +114,9 @@ export function animateSeasons(data) {
 
         gsap.to(bgOverlay3, {
         scrollTrigger: {
-            trigger: ".winter",
+            trigger: ".winter.fish",
             start: "top center",
+            markers: true
         },
         opacity: 1,
         duration: 1,
@@ -109,6 +128,270 @@ export function animateSeasons(data) {
     } catch (error) {
        console.log(error); 
     }
+
+    setTimeout(() => {
+        ScrollTrigger.refresh();
+    }, 50);
+
+    
+}
+
+
+export function animateSeasonsBugs(data) {
+    // Step 1: Check if GSAP is available
+    console.log("started animation bugs");
+    ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    document.querySelectorAll('.season-overlay').forEach(el => el.remove());
+    console.log("all triggers killed");
+
+    
+    if (typeof gsap === 'undefined') {
+        console.log('GSAP not available. Check console.');
+        return;
+    }
+
+    if (data.length === 0) {
+        console.log('No data loaded. Click "Load Data" first.');
+        return;
+    }
+    
+    try {
+        gsap.to('body', 
+            // FROM state (starting point)
+            {
+                
+                scrollTrigger: '.spring.bugs',
+                backgroundImage: "url(img/spring.png)",
+                markers: true
+            }
+        );
+
+        // Add a div overlay for the new background
+        const bgOverlay1 = document.createElement('div');
+        bgOverlay1.classList.add('season-overlay');
+        bgOverlay1.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url(img/summer.png);
+        background-size: cover;
+        background-position: center;
+        opacity: 0;
+        z-index: -3;
+        `;
+        document.body.prepend(bgOverlay1);
+
+        
+        // Animate the overlay
+        gsap.to(bgOverlay1, {
+        scrollTrigger: {
+            trigger: ".summer.bugs",
+            start: "top center",
+            markers: true
+        },
+        opacity: 1,
+        duration: 1,
+        ease: "power2.inOut"
+        });
+
+        const bgOverlay2 = document.createElement('div');
+        bgOverlay2.classList.add('season-overlay');
+        bgOverlay2.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url(img/fall.png);
+        background-size: cover;
+        background-position: center;
+        opacity: 0;
+        z-index: -2;
+        `;
+        document.body.prepend(bgOverlay2);
+
+
+        gsap.to(bgOverlay2, {
+        scrollTrigger: {
+            trigger: ".fall.bugs",
+            start: "top center",
+            markers: true
+        },
+        opacity: 1,
+        duration: 1,
+        ease: "power2.inOut"
+        });
+
+        const bgOverlay3 = document.createElement('div');
+        bgOverlay3.classList.add('season-overlay');
+        bgOverlay3.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url(img/winter.jpg);
+        background-size: cover;
+        background-position: center;
+        opacity: 0;
+        z-index: -1;
+        `;
+        document.body.prepend(bgOverlay3);
+
+        gsap.to(bgOverlay3, {
+        scrollTrigger: {
+            trigger: ".winter.bugs",
+            start: "top center",
+            markers: true
+        },
+        opacity: 1,
+        duration: 1,
+        ease: "power2.inOut"
+        });
+        
+        console.log('Animation created successfully!');
+        
+    } catch (error) {
+       console.log(error); 
+    }
+
+    setTimeout(() => {
+        ScrollTrigger.refresh();
+    }, 50);
+
+}
+
+export function animateSeasonsCreatures(data) {
+    // Step 1: Check if GSAP is available
+    console.log("started animation fish");
+    ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    document.querySelectorAll('.season-overlay').forEach(el => el.remove());
+    console.log("all triggers killed");
+
+    
+    if (typeof gsap === 'undefined') {
+        console.log('GSAP not available. Check console.');
+        return;
+    }
+
+    if (data.length === 0) {
+        console.log('No data loaded. Click "Load Data" first.');
+        return;
+    }
+    
+    try {
+        gsap.to('body', 
+            // FROM state (starting point)
+            {
+                
+                scrollTrigger: '.spring.creatures',
+                backgroundImage: "url(img/spring.png)",
+                markers: true
+            }
+        );
+
+        
+
+        // Add a div overlay for the new background
+        const bgOverlay1 = document.createElement('div');
+        bgOverlay1.classList.add('season-overlay');
+        bgOverlay1.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url(img/summer.png);
+        background-size: cover;
+        background-position: center;
+        opacity: 0;
+        z-index: -3;
+        `;
+        document.body.prepend(bgOverlay1);
+
+        
+        // Animate the overlay
+        gsap.to(bgOverlay1, {
+        scrollTrigger: {
+            trigger: ".summer.creatures",
+            start: "top center",
+            markers: true
+        },
+        opacity: 1,
+        duration: 1,
+        ease: "power2.inOut"
+        });
+
+        
+
+        const bgOverlay2 = document.createElement('div');
+        bgOverlay2.classList.add('season-overlay');
+        bgOverlay2.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url(img/fall.png);
+        background-size: cover;
+        background-position: center;
+        opacity: 0;
+        z-index: -2;
+        `;
+        document.body.prepend(bgOverlay2);
+
+
+        gsap.to(bgOverlay2, {
+        scrollTrigger: {
+            trigger: ".fall.creatures",
+            start: "top center",
+            markers: true
+        },
+        opacity: 1,
+        duration: 1,
+        ease: "power2.inOut"
+        });
+
+        
+
+        const bgOverlay3 = document.createElement('div');
+        bgOverlay3.classList.add('season-overlay');
+        bgOverlay3.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url(img/winter.jpg);
+        background-size: cover;
+        background-position: center;
+        opacity: 0;
+        z-index: -1;
+        `;
+        document.body.prepend(bgOverlay3);
+
+        gsap.to(bgOverlay3, {
+        scrollTrigger: {
+            trigger: ".winter.creatures",
+            start: "top center",
+            markers: true
+        },
+        opacity: 1,
+        duration: 1,
+        ease: "power2.inOut"
+        });
+        
+        console.log('Animation created successfully!');
+        
+    } catch (error) {
+       console.log(error); 
+    }
+
+    setTimeout(() => {
+        ScrollTrigger.refresh();
+    }, 50);
 
     
 }

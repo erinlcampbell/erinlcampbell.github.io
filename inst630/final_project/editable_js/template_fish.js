@@ -82,19 +82,19 @@ function showFish(data) {
      /*html*/ 
   return `
                 <div class="scrollerContainer">
-                  <div class="season spring">
+                  <div class="season spring fish">
                      <div class="seasonTitle"><img class="seasonIcon" src="img/flower.png" alt=""> Spring <img class="seasonIcon" src="img/flower.png" alt=""></div>
                     ${fishSpringHTML}
                   </div>
-                  <div class="season summer">
+                  <div class="season summer fish">
                     <div class="seasonTitle"><img class="seasonIcon" src="img/shell.png" alt=""> Summer <img class="seasonIcon" src="img/shell.png" alt=""></div>
                     ${fishSummerHTML}
                   </div>
-                  <div class="season fall">
+                  <div class="season fall fish">
                      <div class="seasonTitle"><img class="seasonIcon" src="img/mushroom.png" alt=""> Fall <img class="seasonIcon" src="img/mushroom.png" alt=""></div>
                     ${fishFallHTML}
                   </div>
-                  <div class="season winter">
+                  <div class="season winter fish">
                      <div class="seasonTitle"><img class="seasonIcon" src="img/snowflake.png" alt=""> Winter <img class="seasonIcon" src="img/snowflake.png" alt=""></div>
                     ${fishWinterHTML}
                   </div>
