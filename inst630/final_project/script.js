@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Set up button event handlers - this pattern always works!
     document.getElementById("btn-fish").onclick = () => {
-      
+      document.documentElement.scrollTop = 0;
 
       updateDisplay(showFish(data));
       animateSeasonsFish(data);
@@ -100,6 +100,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.getElementById("btn-bugs").onclick = () => {
       //animate fade in and out of display once new display is selected
       //animateDisplay(data);
+      document.documentElement.scrollTop = 0;
       updateDisplay(showBugs(data));
       animateSeasonsBugs(data);
     
@@ -120,6 +121,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.getElementById("btn-creatures").onclick = () => {
       //animate fade in and out of display once new display is selected
       //animateDisplay(data);
+      document.documentElement.scrollTop = 0;
       updateDisplay(showCreatures(data));
       
       animateSeasonsCreatures(data);

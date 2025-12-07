@@ -28,7 +28,7 @@ export function animateSeasonsFish(data) {
                 
                 scrollTrigger: '.spring.fish',
                 backgroundImage: "url(img/spring.png)",
-                markers: true
+                markers: false
             }
         );
 
@@ -57,7 +57,7 @@ export function animateSeasonsFish(data) {
         scrollTrigger: {
             trigger: ".summer.fish",
             start: "top center",
-            markers: true
+            markers: false
         },
         opacity: 1,
         duration: 1,
@@ -87,7 +87,7 @@ export function animateSeasonsFish(data) {
         scrollTrigger: {
             trigger: ".fall.fish",
             start: "top center",
-            markers: true
+            markers: false
         },
         opacity: 1,
         duration: 1,
@@ -116,7 +116,7 @@ export function animateSeasonsFish(data) {
         scrollTrigger: {
             trigger: ".winter.fish",
             start: "top center",
-            markers: true
+            markers: false
         },
         opacity: 1,
         duration: 1,
@@ -162,7 +162,7 @@ export function animateSeasonsBugs(data) {
                 
                 scrollTrigger: '.spring.bugs',
                 backgroundImage: "url(img/spring.png)",
-                markers: true
+                markers: false
             }
         );
 
@@ -189,7 +189,7 @@ export function animateSeasonsBugs(data) {
         scrollTrigger: {
             trigger: ".summer.bugs",
             start: "top center",
-            markers: true
+            markers: false
         },
         opacity: 1,
         duration: 1,
@@ -217,7 +217,7 @@ export function animateSeasonsBugs(data) {
         scrollTrigger: {
             trigger: ".fall.bugs",
             start: "top center",
-            markers: true
+            markers: false
         },
         opacity: 1,
         duration: 1,
@@ -244,7 +244,7 @@ export function animateSeasonsBugs(data) {
         scrollTrigger: {
             trigger: ".winter.bugs",
             start: "top center",
-            markers: true
+            markers: false
         },
         opacity: 1,
         duration: 1,
@@ -288,7 +288,7 @@ export function animateSeasonsCreatures(data) {
                 
                 scrollTrigger: '.spring.creatures',
                 backgroundImage: "url(img/spring.png)",
-                markers: true
+                markers: false
             }
         );
 
@@ -317,7 +317,7 @@ export function animateSeasonsCreatures(data) {
         scrollTrigger: {
             trigger: ".summer.creatures",
             start: "top center",
-            markers: true
+            markers: false
         },
         opacity: 1,
         duration: 1,
@@ -347,7 +347,7 @@ export function animateSeasonsCreatures(data) {
         scrollTrigger: {
             trigger: ".fall.creatures",
             start: "top center",
-            markers: true
+            markers: false
         },
         opacity: 1,
         duration: 1,
@@ -376,7 +376,7 @@ export function animateSeasonsCreatures(data) {
         scrollTrigger: {
             trigger: ".winter.creatures",
             start: "top center",
-            markers: true
+            markers: false
         },
         opacity: 1,
         duration: 1,
