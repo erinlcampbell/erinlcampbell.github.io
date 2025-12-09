@@ -37,7 +37,7 @@ body {
     background-size: cover;
     background-position: center center;
    
-    -webkit-background-size: cover;
+    background-attachment: fixed
 }
 
 .container {
