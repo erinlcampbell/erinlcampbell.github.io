@@ -32,11 +32,12 @@ body {
     margin: 0;
     padding: 1rem;
     background-image: url(img/spring.png);
-    /*background: var(--background-color);*/
+
     color: var(--text-color);
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
+    -webkit-background-size: cover;
 }
 
 .container {
