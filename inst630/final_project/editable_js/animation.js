@@ -22,15 +22,37 @@ export function animateSeasonsFish(data) {
     }
     
     try {
-        gsap.to('body', 
-            // FROM state (starting point)
-            {
-                
-                scrollTrigger: '.spring.fish',
-                backgroundImage: "url(img/spring.png)",
-                markers: false
-            }
-        );
+        const bgOverlay = document.createElement('div');
+        bgOverlay.classList.add('season-overlay');
+        bgOverlay.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-image: url(img/spring.png);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        overflow: hidden;
+        pointer-events: none;
+        opacity: 0;
+        z-index: -4;
+        `;
+        document.body.prepend(bgOverlay);
+
+        
+        // Animate the overlay
+        gsap.to(bgOverlay, {
+        scrollTrigger: {
+            trigger: ".spring.fish",
+            start: "top center",
+            markers: false
+        },
+        opacity: 1,
+        duration: 1,
+        ease: "power2.inOut"
+        });
 
         
 
