@@ -9,7 +9,9 @@ import {
   animateRolodex,
   animateTitleRolodex,
   animateWiggle,
-  animateCatchphrase
+  animateCatchphrase,
+  animateDisplay,
+  animateTitle
  } from './editable_js/animation.js';
 
 import loadData from './editable_js/load_data.js';
@@ -78,6 +80,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Set up button event handlers - this pattern always works!
     document.getElementById("btn-fish").onclick = () => {
+      animateDisplay(data);
       document.documentElement.scrollTop = 0;
 
       updateDisplay(showFish(data));
@@ -99,7 +102,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     document.getElementById("btn-bugs").onclick = () => {
       //animate fade in and out of display once new display is selected
-      //animateDisplay(data);
+      animateDisplay(data);
       document.documentElement.scrollTop = 0;
       updateDisplay(showBugs(data));
       animateSeasonsBugs(data);
@@ -120,7 +123,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     document.getElementById("btn-creatures").onclick = () => {
       //animate fade in and out of display once new display is selected
-      //animateDisplay(data);
+      animateDisplay(data);
       document.documentElement.scrollTop = 0;
       updateDisplay(showCreatures(data));
       
@@ -143,6 +146,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     
 
     // Show initial view
+    animateTitle(data);
+    animateDisplay(data);
     updateDisplay(showFish(data));
     animateSeasonsFish(data);
     

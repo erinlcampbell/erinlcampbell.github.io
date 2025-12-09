@@ -41,11 +41,14 @@ export function animateSeasonsFish(data) {
         position: fixed;
         top: 0;
         left: 0;
-        width: 100%;
-        height: 100%;
+        width: 100vw;
+        height: 100vh;
         background-image: url(img/summer.png);
         background-size: cover;
         background-position: center;
+        background-repeat: no-repeat;
+        overflow: hidden;
+        pointer-events: none;
         opacity: 0;
         z-index: -3;
         `;
@@ -72,11 +75,14 @@ export function animateSeasonsFish(data) {
         position: fixed;
         top: 0;
         left: 0;
-        width: 100%;
-        height: 100%;
+        width: 100vw;
+        height: 100vh;
         background-image: url(img/fall.png);
         background-size: cover;
         background-position: center;
+        background-repeat: no-repeat;
+        overflow: hidden;
+        pointer-events: none;
         opacity: 0;
         z-index: -2;
         `;
@@ -102,11 +108,14 @@ export function animateSeasonsFish(data) {
         position: fixed;
         top: 0;
         left: 0;
-        width: 100%;
-        height: 100%;
+        width: 100vw;
+        height: 100vh;
         background-image: url(img/winter.jpg);
         background-size: cover;
         background-position: center;
+        background-repeat: no-repeat;
+        overflow: hidden;
+        pointer-events: none;
         opacity: 0;
         z-index: -1;
         `;
@@ -173,11 +182,14 @@ export function animateSeasonsBugs(data) {
         position: fixed;
         top: 0;
         left: 0;
-        width: 100%;
-        height: 100%;
+        width: 100vw;
+        height: 100vh;
         background-image: url(img/summer.png);
         background-size: cover;
         background-position: center;
+        background-repeat: no-repeat;
+        overflow: hidden;
+        pointer-events: none;
         opacity: 0;
         z-index: -3;
         `;
@@ -202,11 +214,14 @@ export function animateSeasonsBugs(data) {
         position: fixed;
         top: 0;
         left: 0;
-        width: 100%;
-        height: 100%;
+        width: 100vw;
+        height: 100vh;
         background-image: url(img/fall.png);
         background-size: cover;
         background-position: center;
+        background-repeat: no-repeat;
+        overflow: hidden;
+        pointer-events: none;
         opacity: 0;
         z-index: -2;
         `;
@@ -230,11 +245,14 @@ export function animateSeasonsBugs(data) {
         position: fixed;
         top: 0;
         left: 0;
-        width: 100%;
-        height: 100%;
+        width: 100vw;
+        height: 100vh;
         background-image: url(img/winter.jpg);
         background-size: cover;
         background-position: center;
+        background-repeat: no-repeat;
+        pointer-events: none;
+        overflow: hidden;
         opacity: 0;
         z-index: -1;
         `;
@@ -301,11 +319,14 @@ export function animateSeasonsCreatures(data) {
         position: fixed;
         top: 0;
         left: 0;
-        width: 100%;
-        height: 100%;
+        width: 100vw;
+        height: 100vh;
         background-image: url(img/summer.png);
         background-size: cover;
         background-position: center;
+        background-repeat: no-repeat;
+        overflow: hidden;
+        pointer-events: none;
         opacity: 0;
         z-index: -3;
         `;
@@ -332,11 +353,14 @@ export function animateSeasonsCreatures(data) {
         position: fixed;
         top: 0;
         left: 0;
-        width: 100%;
-        height: 100%;
+        width: 100vw;
+        height: 100vh;
         background-image: url(img/fall.png);
         background-size: cover;
         background-position: center;
+        background-repeat: no-repeat;
+        overflow: hidden;
+        pointer-events: none;
         opacity: 0;
         z-index: -2;
         `;
@@ -362,12 +386,15 @@ export function animateSeasonsCreatures(data) {
         position: fixed;
         top: 0;
         left: 0;
-        width: 100%;
-        height: 100%;
+        width: 100vw;
+        height: 100vh;
         background-image: url(img/winter.jpg);
         background-size: cover;
         background-position: center;
+        background-repeat: no-repeat;
+        overflow: hidden;
         opacity: 0;
+        pointer-events: none;
         z-index: -1;
         `;
         document.body.prepend(bgOverlay3);
@@ -422,7 +449,7 @@ export function animateDisplay(data) {
                 {
                     
                     opacity: 1, //view reappears with a fade in of one second
-                    duration: 1
+                    duration: 1.2
                 }
             );
             
@@ -455,7 +482,7 @@ export function animateRolodex(data, animal) {
             scrollTrigger: {
                 trigger: animal,
                 markers: false,
-                start: "10% 100%",
+                start: "20% 100%",
                 end: "90% 0%",
                 scrub: true
             }
@@ -589,8 +616,7 @@ export function animateCatchphrase(data) {
     
 }
 
-//Make the cards slightly bigger when the user hovers over them so they are aware of their selection and the information is made more clear.
-export function animateMyCardsHover(data, card) {
+export function animateTitle(data) {
     // Step 1: Check if GSAP is available
     if (typeof gsap === 'undefined') {
         console.log('GSAP not available. Check console.');
@@ -603,36 +629,23 @@ export function animateMyCardsHover(data, card) {
     }
     
     try {
-  
-        //on hover, increase the scale
-        card.addEventListener("mouseenter", () => {
-            let animation = gsap.to(card, 
-            
-            // TO state (ending point)  
-            {
-                
-                scale: 1.10
-                
-            }
-        );
-            animation.play()
-        });
 
-        //when the user hovers away, return to normal size
-        card.addEventListener("mouseleave", () => {
-            let animation = gsap.to(card, 
-            
-            // TO state (ending point)  
-            {
-                
-                scale: 1,
-                ease: "bounce.out"
-            }
-        );
-            animation.play()
-        });
         
-        console.log('Hover Animation created successfully!');
+        gsap.fromTo(".header", 
+                // FROM state (starting point)
+                {
+                    
+                    y: -100 //erases view and then...
+                },
+                // TO state (ending point)  
+                {
+                    duration: 0.5,
+                    y:0, //drop to desired point
+                    ease: "bounce.out" //bounces on drop
+                }
+            );
+            
+            console.log('Title Animation created successfully!');
         
     } catch (error) {
        console.log(error); // Error handling provided in support file
@@ -640,3 +653,55 @@ export function animateMyCardsHover(data, card) {
 
     
 }
+
+// //Make the cards slightly bigger when the user hovers over them so they are aware of their selection and the information is made more clear.
+// export function animateMyCardsHover(data, card) {
+//     // Step 1: Check if GSAP is available
+//     if (typeof gsap === 'undefined') {
+//         console.log('GSAP not available. Check console.');
+//         return;
+//     }
+
+//     if (data.length === 0) {
+//         console.log('No data loaded. Click "Load Data" first.');
+//         return;
+//     }
+    
+//     try {
+  
+//         //on hover, increase the scale
+//         card.addEventListener("mouseenter", () => {
+//             let animation = gsap.to(card, 
+            
+//             // TO state (ending point)  
+//             {
+                
+//                 scale: 1.10
+                
+//             }
+//         );
+//             animation.play()
+//         });
+
+//         //when the user hovers away, return to normal size
+//         card.addEventListener("mouseleave", () => {
+//             let animation = gsap.to(card, 
+            
+//             // TO state (ending point)  
+//             {
+                
+//                 scale: 1,
+//                 ease: "bounce.out"
+//             }
+//         );
+//             animation.play()
+//         });
+        
+//         console.log('Hover Animation created successfully!');
+        
+//     } catch (error) {
+//        console.log(error); // Error handling provided in support file
+//     }
+
+    
+// }
