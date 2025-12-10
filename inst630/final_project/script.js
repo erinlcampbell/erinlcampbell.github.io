@@ -106,14 +106,14 @@ document.addEventListener("DOMContentLoaded", async () => {
       document.documentElement.scrollTop = 0;
       updateDisplay(showBugs(data));
       animateSeasonsBugs(data);
-      window.onload = function() {
-        document.querySelectorAll(".animalObject").forEach((animal) => {
-           animateRolodex(data, animal);
-        });
-        document.querySelectorAll(".seasonTitle").forEach((title) => {
-          animateTitleRolodex(data, title);
-        });
-      };
+      
+      document.querySelectorAll(".animalObject").forEach((animal) => {
+         animateRolodex(data, animal);
+      });
+      document.querySelectorAll(".seasonTitle").forEach((title) => {
+        animateTitleRolodex(data, title);
+      });
+    
       document.querySelectorAll(".animalImage").forEach((animalImage) => {
         animateWiggle(data, animalImage);
       });
