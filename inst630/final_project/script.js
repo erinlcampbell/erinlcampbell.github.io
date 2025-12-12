@@ -1,7 +1,6 @@
 import showFish from './editable_js/template_fish.js';
 import showCreatures from './editable_js/template_sea_creature.js';
 import showBugs from './editable_js/template_bug.js';
-import initializeSortable from './editable_js/sortable_table.js';
 import {
   animateSeasonsFish,
   animateSeasonsBugs,
